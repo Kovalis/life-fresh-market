@@ -1,0 +1,294 @@
+// В этом файле должны быть стили для БЭМ-блока page-header, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.header {
+  $block-name: &; // #{$block-name}__element
+
+  position: relative;
+  z-index: 20;
+
+  background-color: $white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+  &__top-inner,
+  &__bottom-inner {
+    @media screen and (min-width: $screen-xl) {
+      margin-left: 159px;
+    }
+  }
+
+  &__top-inner {
+    @include flex-center;
+    position: relative;
+    justify-content: space-between;
+  }
+
+  &__bottom-inner {
+    position: relative;
+
+    display: flex;
+
+    min-height: 74px;
+  }
+
+  &__bottom-inner-left {
+    @include flex-center;
+    gap: 15px;
+
+    padding-right: 15px;
+
+    @media screen and (min-width: $screen-xl) {
+      flex-grow: 1;
+    }
+  }
+
+  &__top {
+    display: none;
+
+    @media screen and (min-width: $screen-xl) {
+      display: block;
+
+      background-color: $dark-grey;
+
+      padding: 9px 0;
+    }
+  }
+
+  &__logo {
+    display: flex !important;
+    align-items: flex-end;
+    justify-content: center;
+
+    width: 135px;
+    height: 135px;
+    padding-bottom: 19px;
+    margin-left: auto;
+    margin-right: auto;
+
+    position: relative;
+    margin-bottom: -19px;
+    margin-top: -50px;
+
+    background: $white;
+    border-radius: 100px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+    @media screen and (min-width: $screen-xl) {
+      position: absolute;
+      left: -193px;
+      bottom: 0;
+
+      width: 193px;
+      height: 193px;
+
+      margin-bottom: 0;
+      margin-top: 0;
+      padding-bottom: 32px;
+    }
+  }
+
+  &__top-nav {
+    @include flex-center;
+    gap: 41px;
+  }
+
+  &__top-nav-item {
+    list-style: none;
+  }
+
+  &__top-nav-link {
+    font-size: 12px;
+    font-weight: 500;
+    color: $white;
+    text-decoration: none;
+
+    &:hover,
+    &:focus,
+    &_active {
+      color: $accent-color;
+
+      text-decoration: none;
+    }
+  }
+
+  &__bottom-nav {
+    display: flex;
+    align-items: stretch;
+    gap: 16px;
+
+    padding-left: 16px;
+
+    @media screen and (min-width: $screen-lg) {
+      gap: 20px;
+
+      padding-left: 20px;
+    }
+  }
+
+  &__bottom-nav-item {
+    @include flex-center;
+    white-space: nowrap;
+
+    text-decoration: none;
+    font-size: 0;
+    color: $dark-text;
+
+    position: relative;
+
+    border-bottom: 3px solid transparent;
+
+    transition: 0.3s border-color;
+
+    @media screen and (min-width: $screen-lg) {
+      padding-left: 3px;
+      gap: 10px;
+    }
+
+    @media screen and (min-width: $screen-xl) {
+      @include font-size(700, 14px, 1);
+    }
+
+    svg {
+      color: $svg-grey;
+      width: 16px;
+      height: 16px;
+
+      @media screen and (min-width: $screen-xl) {
+        width: 20px;
+        height: 20px;
+      }
+
+      * {
+        transition: 0.3s fill;
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    &:hover,
+    &:focus,
+    &_active {
+      border-color: $accent-color;
+
+      svg {
+        color: $accent-color;
+      }
+    }
+
+    &_sale {
+      margin-right: 16px;
+
+      &:hover,
+      &:focus,
+      &_active {
+        border-color: transparent;
+      }
+
+      @media screen and (min-width: $screen-lg) {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__search {
+    display: none;
+
+    padding-right: 40px;
+
+    background: url("../img/loupe.svg") $grey no-repeat calc(100% - 12px) center;
+    background-size: 20px;
+
+    @media screen and (min-width: $screen-xl) {
+      display: block;
+      flex-grow: 1;
+    }
+  }
+
+  &__bottom-nav-item-persent {
+    @include font-size(700, 20px, 1);
+    @include flex-center;
+    justify-content: center;
+
+    width: 31px;
+    height: 31px;
+
+    background-color: $second-color;
+    border-radius: 5px;
+
+    @media screen and (min-width: $screen-xl) {
+      width: 45px;
+      height: 45px;
+
+      border-radius: 10px;
+    }
+  }
+
+  &__btn-catalog {
+    display: none;
+
+    @media screen and (min-width: $screen-lg) {
+      display: inline-flex;
+    }
+  }
+}
+
+.header-top-left {
+  @include flex-center;
+  gap: 43px;
+
+  margin-left: 20px;
+  margin-right: 20px;
+
+  &__item {
+    @include flex-center;
+
+    color: $white;
+    font-size: 14px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    &:hover,
+    &:focus,
+    &_active {
+      text-decoration: none;
+
+      color: $white;
+    }
+
+    &_big {
+      font-size: 18px;
+    }
+  }
+
+  &__item-img {
+    margin-right: 10px;
+  }
+}
+
+.burger-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+
+  width: 25px;
+  height: 30px;
+
+  @media screen and (min-width: $screen-xl) {
+    display: none;
+  }
+
+  &__item {
+    height: 3px;
+    width: 20px;
+
+    background-color: $accent-color;
+    border-radius: 10px;
+
+    &:not(:last-child) {
+      margin-bottom: 5px;
+    }
+  }
+}

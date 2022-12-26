@@ -1,0 +1,86 @@
+.basket-item {
+  @include flex-center;
+  gap: 10px;
+  flex-shrink: 0;
+  position: relative;
+
+  background-color: $white;
+  border-radius: 5px;
+
+  width: 100%;
+  padding: 3px 10px;
+
+  &__grid {
+    display: flex;
+    gap: 10px;
+    flex-grow: 1;
+  }
+
+  &__title {
+    @include font-size(500, 8px, 1.2);
+    color: rgba($dark-text, 0.7);
+  }
+
+  &__bottom {
+    @include flex-center;
+    gap: 12px;
+  }
+
+  &__price {
+    @include font-size(700, 10px, 1.2);
+    color: $dark-text;
+  }
+
+  &__weight {
+    @include font-size(400, 8px, 1.2);
+    color: rgba($dark-text, 0.5);
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__name {
+    @include font-size(500, 8px, 1.2);
+    color: rgba($dark-text, 0.7);
+
+    margin-bottom: 4px;
+  }
+
+  &__count-wrap {
+    @include flex-center;
+    flex-direction: column;
+
+    min-width: 30px;
+  }
+
+  &__count {
+    @include font-size(400, 12px, 1.2);
+    color: $dark-text;
+  }
+
+  &__btn {
+    @include font-size(400, 12px, 1.2);
+    color: rgba($dark-text, 0.3);
+    cursor: pointer;
+
+    outline: none;
+    background-color: transparent;
+    border: none;
+  }
+
+  &__close {
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    cursor: pointer;
+
+    width: 8px;
+    height: 8px;
+
+    background: url("../img/close.svg") no-repeat center;
+    background-size: 8px;
+  }
+}

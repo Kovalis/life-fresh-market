@@ -1,0 +1,23 @@
+.product-list {
+  position: relative;
+
+  .swiper {
+    &:after {
+      content: "";
+
+      position: absolute;
+      top: 9px;
+      right: 0;
+      bottom: 9px;
+      z-index: 2;
+
+      width: 100px;
+
+      background: linear-gradient(
+        270deg,
+        #ffffff 27.68%,
+        rgba(255, 255, 255, 0) 100%
+      );
+    }
+  }
+}

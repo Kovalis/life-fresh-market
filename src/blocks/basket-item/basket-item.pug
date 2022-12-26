@@ -1,0 +1,14 @@
+mixin basket-item
+    .basket-item
+        img(src='./img/product.png', alt='', width='29', height='50') 
+        .basket-item__grid
+            .basket-item__count-wrap
+                button.basket-item__btn.js-basket-list-btn-add +
+                .basket-item__count 2
+                button.basket-item__btn.js-basket-list-btn-remove -
+            .basket-item__col 
+                .basket-item__name Макаронные изделия Макфа триколлини...
+                .basket-item__bottom
+                    .basket-item__price 120 руб.
+                    .basket-item__weight 450г.
+        .basket-item__close.js-basket-item-close

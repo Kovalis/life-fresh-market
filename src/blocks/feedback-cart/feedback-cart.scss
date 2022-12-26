@@ -1,0 +1,55 @@
+.feedback-cart {
+  &_hide{
+    display: none;
+  }
+
+  &__title {
+    @include font-size(600, 10px, 1.2);
+    @include flex-center;
+    gap: 10px;
+
+    color: $dark-text;
+
+    margin-bottom: 5px;
+  }
+
+  &__title-img {
+    opacity: 0.3;
+  }
+
+  &__text {
+    @include font-size(500, 12px, 1.2);
+    color: $dark-text;
+
+    &:not(&_active) {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      line-clamp: 4;
+      -webkit-box-orient: vertical;
+    }
+  }
+
+  &__show-more {
+    @include font-size(500, 12px, 1.2);
+    color: $accent-color;
+    text-decoration: underline;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+
+    &_hide {
+      display: none;
+    }
+  }
+
+  &__swiper{
+    &_hide{
+      display: none;
+    }
+  }
+}

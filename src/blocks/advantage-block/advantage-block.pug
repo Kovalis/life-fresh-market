@@ -1,0 +1,36 @@
+mixin advantage-block
+    -
+        const advantages = [
+            {
+                img: './img/chef.svg',
+                alt: 'chef',
+                title: 'Качество продуктов',
+                text: 'Выбирайте из 40 000 товаров: у нас есть фрукты и овощи, мясо и рыба, все для дома и товары для животных'
+            },
+            {
+                img: './img/reservation.svg',
+                alt: 'reservation',
+                title: 'Легкий заказ',
+                text: 'Выбирайте из 40 000 товаров: у нас есть фрукты и овощи, мясо и рыба, все для дома и товары для животных'
+            },
+            {
+                img: './img/reception-bell.svg',
+                alt: 'reception-bell',
+                title: 'Доставка до двери',
+                text: 'Выбирайте из 40 000 товаров: у нас есть фрукты и овощи, мясо и рыба, все для дома и товары для животных'
+            },
+            {
+                img: './img/recommended.svg',
+                alt: 'recommended',
+                title: 'Выбор покупателей',
+                text: 'Выбирайте из 40 000 товаров: у нас есть фрукты и овощи, мясо и рыба, все для дома и товары для животных'
+            },
+        ]
+    section.advantage-block
+        each item in advantages
+            .advantage-block__item
+                .advantage-block__item-left
+                    img.advantage-block__item-img(src=item.img, alt=item.alt, width='40', height='40')
+                .advantage-block__item-right
+                    .advantage-block__item-title!=item.title
+                    .advantage-block__item-text!=item.text

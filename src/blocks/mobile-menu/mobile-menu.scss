@@ -1,0 +1,99 @@
+.mobile-menu {
+  display: none;
+  overflow: auto;
+
+  position: absolute;
+  top: 60px;
+  right: 0;
+  left: 0;
+
+  height: calc(100% - 60px);
+  padding-top: 35px;
+  background-color: $white;
+  z-index: 9;
+
+  &_show {
+    display: block;
+  }
+
+  &__title {
+    @include font-size(400, 12px, 1.2);
+    color: $dark-text;
+
+    padding-left: 16px;
+    margin-bottom: 16px;
+  }
+
+  &__list {
+    position: relative;
+  }
+
+  &__li {
+    border-top: 1px solid rgba($dark-text, 0.1);
+  }
+
+  &__a {
+    @include flex-center;
+
+    position: relative;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    text-decoration: none;
+
+    transition: 0.3s background-color;
+
+    &_submenu {
+      &:before {
+        content: "";
+        display: block;
+
+        position: absolute;
+        right: 5px;
+        top: 12px;
+        width: 10px;
+        height: 10px;
+
+        background: url("../img/arrow-down.svg") no-repeat center;
+        background-size: 10px;
+      }
+    }
+
+    &:hover,
+    &:focus,
+    &_active {
+      background-color: $accent-color;
+    }
+  }
+
+  &__img {
+    @include flex-center;
+    justify-content: center;
+
+    width: 55px;
+    flex-shrink: 0;
+  }
+
+  &__submenu {
+    display: none;
+
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+
+    transform: translateX(100%);
+
+    background-color: $grey;
+    width: calc(100% - 50px);
+    padding-left: 25px;
+
+    transition: 0.5s transform;
+
+    &_active {
+      display: block;
+      transform: translateX(0);
+    }
+  }
+}

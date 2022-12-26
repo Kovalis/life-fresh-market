@@ -30,6 +30,8 @@ html(class='page  no-js', lang='ru')
     //- meta(name='msapplication-navbutton-color', content='#000')
     //- meta(name='apple-mobile-web-app-status-bar-style', content='#000')
 
+    link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css')
+
     block meta
       title Home
 
@@ -43,20 +45,12 @@ html(class='page  no-js', lang='ru')
 
     .page__inner
       .page__content
-
-        +page-header()
-          +logo('/')
-            img(src='img/demo-logo.svg', alt='Logo', width='64', height='15')
+        +header()
           block nav
-
-        block content
-          p содержимое
-
-      .page__footer-wrapper
-        +page-footer()
-          block footer
-            p «Подвал»
-            p Контактный телефон: #[a(href='tel:+70000000000') +7 000 000 00 00]
-
+        .container.container_flex
+          block content
+          .container__sidebar
+            +sidebar
+      +footer()
     block page-bottom
       script(src='js/bundle.js')

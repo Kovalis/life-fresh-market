@@ -1,0 +1,13 @@
+mixin flex-title(title, text, mod)
+    .flex-title
+        -
+            let classes = '';
+            if(typeof(mod) !== 'undefined' && mod) {
+                
+                classes = 'section-title ' + mod;
+            }
+            else{
+                classes = 'section-title';
+            }
+        div(class=classes)!=title
+        a(href='#').flex-title__arrow!=text

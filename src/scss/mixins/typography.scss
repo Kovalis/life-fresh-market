@@ -1,0 +1,44 @@
+@mixin h1($weight: 700) {
+  font-size: rem(40px);
+  font-family: var(--font_secondary);
+  font-weight: $weight;
+  line-height: 1.1;
+  @media screen and (min-width: $screen-d) {
+    font-size: rem(80px);
+  }
+}
+
+@mixin h2($weight: 700) {
+  font-size: rem(28px);
+  font-family: var(--font_secondary);
+  font-weight: $weight;
+  line-height: 1.14285714;
+  @media screen and (min-width: $screen-d) {
+    font-size: rem(40px);
+    line-height: 1.2;
+  }
+}
+@mixin h3($weight: 500) {
+  font-size: rem(20px);
+  font-weight: $weight;
+  line-height: 1.5;
+  @media screen and (min-width: $screen-d) {
+    font-size: rem(32px);
+  }
+}
+@mixin h4($weight: 600) {
+  font-size: rem(24px);
+  font-weight: $weight;
+  line-height: 1.1667;
+}
+@mixin h5($weight: 600) {
+  font-size: rem(20px);
+  font-weight: $weight;
+  line-height: 1.2;
+}
+
+@mixin font-size($weight: 400, $size: 16px, $height: 1.2) {
+  font-weight: $weight;
+  font-size: rem($size);
+  line-height: $height;
+}

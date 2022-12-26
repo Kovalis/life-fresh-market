@@ -1,0 +1,9 @@
+.main-slider {
+  max-width: 855px;
+  padding: 21px 0 26px;
+  overflow: hidden;
+
+  @media screen and (min-width: $screen-md) {
+    overflow: unset;
+  }
+}

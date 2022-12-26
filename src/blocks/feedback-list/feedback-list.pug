@@ -1,0 +1,18 @@
+mixin feedback-list
+    .feedback-list
+        .feedback-list__left
+            .feedback-list__title Отзывы о лайме
+            button.feedback-list__btn.main-btn.main-btn_big Написать отзыв
+        .feedback-list__right
+            +feedback-cart('feedback-list__item')
+            +feedback-cart('feedback-list__item')
+            +feedback-cart('feedback-list__item')
+            +feedback-cart('feedback-list__item')
+            +feedback-cart('feedback-list__item')
+            +feedback-cart('feedback-list__item')
+            .feedback-list__more Смотреть все отзывы
+        template.js-feedback-wrap-slider
+            .swiper
+                .swiper-wrapper
+            .swiper-button-prev
+            .swiper-button-next

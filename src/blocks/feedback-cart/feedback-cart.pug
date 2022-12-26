@@ -1,0 +1,14 @@
+mixin feedback-cart(className)
+    -
+        if(className){
+            var listClass = 'feedback-cart ' + className
+        } else{
+            var listClass = 'feedback-cart'
+        }
+
+    div(class=listClass)
+        .feedback-cart__title
+            img.feedback-cart__title-img(src='./img/person.svg', alt='', width='11', height='14')
+            | Александр Петров
+        .feedback-cart__text Спасибо! Все вовремя, качество хорошее, даже в в пробки привезли в указанный срок Спасибо! Все вовремя, качество хорошее, даже в в пробки привезли в указанный срок
+        .feedback-cart__show-more.js-feedback-show-more еще

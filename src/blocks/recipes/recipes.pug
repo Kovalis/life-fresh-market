@@ -1,0 +1,76 @@
+mixin recipes
+    -
+        const advantages = [
+            {
+                title: 'Курочка BARBEQUE',
+                time: '15 минут',
+                count: '4 порции',
+                img: './img/chiken.png'
+            },
+            {
+                title: 'Курочка BARBEQUE',
+                time: '16 минут',
+                count: '5 порции',
+                img: './img/soup.png'
+            },
+            {
+                title: 'Курочка BARBEQUE',
+                time: '15 минут',
+                count: '2 порции',
+                img: './img/chiken.png'
+            },
+            {
+                title: 'Курочка BARBEQUE',
+                time: '15 минут',
+                count: '3 порции',
+                img: './img/soup.png'
+            }
+        ]
+
+    .recipes
+        .recipes__left(style='background-image: url("./img/left-img.png");')
+            .recipes__left-inner
+                div
+                    .recipes__left-title Интервью с шеф-поваром
+                    .recipes__left-text Рассказ из первых рук
+                a.recipes__video(href='#')
+                    img(src='./img/play.svg', alt='')
+        .recipes__right
+            .recipes__wrap-title.flex-title
+                .recipes__title.section-title.section-title_green Рецепты от шеф-лайма!
+                .flex-title__text Соберите все необходимые продукты в один клик!
+            .swiper
+                .swiper-wrapper
+                    each item in advantages
+                        .recipes__slide.swiper-slide
+                            .recipe-item
+                                .recipe-item__title #{item.title}
+                                .recipe-item__top
+                                    img.recipe-item__img(src=item.img, alt='', width='14', height='14')
+                                    .recipe-item__top-info
+                                        .recipe-item__time
+                                            img(src='./img/clock.svg', alt='')
+                                            | #{item.time}
+                                        .recipe-item__count
+                                            img(src='./img/hot-soup-bowl.svg', alt='', width='14', height='14')
+                                            | #{item.count}
+                                .recipe-item__bottom
+                                    .recipe-item__ingredients
+                                        .recipe-item__ingredient
+                                            img(src='/img/meat.png', alt='')
+                                            .recipe-item__tooltip
+                                                .recipe-item__tooltip-title Маслины без косточки
+                                                .recipe-item__tooltip-title 2,54 руб
+                                        .recipe-item__ingredient
+                                            img(src='/img/berry.png', alt='')
+                                            .recipe-item__tooltip
+                                                .recipe-item__tooltip-title Маслины без косточки
+                                                .recipe-item__tooltip-title 2,54 руб
+                                        .recipe-item__ingredient
+                                            img(src='/img/bread.png', alt='')
+                                            .recipe-item__tooltip
+                                                .recipe-item__tooltip-title Маслины без косточки
+                                                .recipe-item__tooltip-title 2,54 руб
+                                    button.recipe-item__btn.main-btn Купить ингредиенты
+                .swiper-button-prev
+                .swiper-button-next

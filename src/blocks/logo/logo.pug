@@ -16,7 +16,7 @@ mixin logo(href, mods)
     if(typeof(mods) !== 'undefined' && mods) {
       var modsList = mods.split(',');
       for (var i = 0; i < modsList.length; i++) {
-        allMods = allMods + ' logo--' + modsList[i].trim();
+        allMods = allMods + ' ' + modsList[i].trim();
       }
     }
 

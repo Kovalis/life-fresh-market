@@ -1,0 +1,124 @@
+.become-better {
+  position: relative;
+
+  display: grid;
+  gap: 22px 29px;
+  grid-template-columns: 1fr 1fr;
+
+  align-items: center;
+
+  background: linear-gradient(90deg, #a1d214 0%, #87c04f 100%), #ffffff;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 20px;
+
+  @media screen and (min-width: $screen-sm) {
+    grid-template-columns: 152px 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 29px;
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      right: 0;
+      top: -64px;
+
+      width: 114px;
+      height: 354px;
+
+      background: url("../img/bg-block.svg") no-repeat center;
+      background-size: 100px;
+    }
+  }
+
+  @media screen and (min-width: $screen-lg) {
+    gap: 0 57px;
+    grid-template-columns: 152px 1fr;
+    padding: 30px 117px 30px 50px;
+  }
+
+  &__left-title {
+    @include font-size(700, 24px, 1.5);
+    color: $dark-text;
+    text-transform: uppercase;
+
+    flex-shrink: 0;
+
+    @media screen and (min-width: $screen-md) {
+      grid-row-start: 1;
+      grid-row-end: 3;
+    }
+  }
+
+  &__right {
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+    @media screen and (min-width: $screen-md) {
+      grid-column-start: 2;
+      grid-column-end: 3;
+    }
+  }
+
+  &__title {
+    @include font-size(400, 14px, 1.2);
+    color: $dark-text;
+
+    margin-bottom: 14px;
+  }
+
+  &__wrap-link {
+    display: flex;
+    gap: 19px;
+    flex-direction: column;
+
+    @media screen and (min-width: $screen-md) {
+      flex-direction: row;
+      grid-row-start: 1;
+      grid-row-end: 3;
+    }
+  }
+
+  &__link {
+    @include flex-center;
+    @include font-size(700, 12px, 1.5);
+    color: $dark-text;
+    justify-content: center;
+    text-decoration: none;
+
+    background-color: $white;
+    border-radius: 5px;
+
+    min-height: 62px;
+    padding: 20px;
+
+    position: relative;
+    z-index: 2;
+
+    &:before {
+      content: "";
+      display: block;
+
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      bottom: -8px;
+      left: -8px;
+      z-index: -1;
+
+      background-color: transparent;
+      border-radius: 5px;
+
+      transition: 0.3s background-color;
+    }
+
+    &:hover,
+    &:focus {
+      &:before {
+        background-color: rgba($white, 0.5);
+      }
+    }
+  }
+}

@@ -1,0 +1,166 @@
+.sidebar {
+  padding: 5px;
+  background-color: $grey;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+
+  &__top {
+    margin-bottom: 10px;
+  }
+
+  &__bottom {
+    background: $white;
+    border-radius: 10px 10px 0px 0px;
+
+    padding: 12px 8px 8px;
+  }
+
+  &__bottom-flex {
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+
+    margin-bottom: 9px;
+  }
+
+  &__bottom-title {
+    @include font-size(400, 8px, 1.2);
+    color: rgba($dark-text, 0.3);
+  }
+
+  &__bottom-price {
+    @include font-size(700, 14px, 1.2);
+    color: $dark-text;
+    text-align: right;
+
+    flex-grow: 1;
+  }
+
+  &__btn {
+    width: 100%;
+    border-radius: 10px;
+    padding: 7px 8px;
+  }
+
+  &__btn-wrap-img {
+    position: relative;
+
+    flex-shrink: 0;
+  }
+
+  &__btn-count {
+    @include flex-center;
+    @include font-size(500, 8px, 1.2);
+    justify-content: center;
+    color: $dark-text;
+
+    position: absolute;
+    right: -8px;
+    top: -6px;
+
+    background-color: $white;
+    border: 1px solid $accent-color;
+    border-radius: 50px;
+
+    min-width: 14px;
+    height: 14px;
+    padding: 3px 1px;
+  }
+
+  &__login {
+    @include font-size(400, 14px, 1.2);
+    color: $dark-text;
+    text-align: center;
+
+    background-color: $white;
+    border-radius: 0 0 10px 10px;
+    padding: 10px;
+  }
+
+  &__login-name {
+    display: block;
+    font-weight: 700;
+  }
+
+  &__void {
+    padding: 48px 13px 10px;
+    text-align: center;
+  }
+
+  &__void-img {
+    margin-bottom: 22px;
+  }
+
+  &__void-title {
+    @include font-size(400, 14px, 1.2);
+    color: rgba($dark-text, 0.3);
+
+    margin-bottom: 49px;
+  }
+
+  &__void-text {
+    @include font-size(400, 12px, 1.2);
+    color: rgba($dark-text, 0.3);
+
+    margin-bottom: 37px;
+  }
+
+  &__void-link {
+    @include font-size(400, 12px, 1.2);
+    color: rgba($dark-text, 0.7);
+
+    margin-bottom: 7px;
+  }
+
+  &__void-btn {
+    background-color: $white;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+
+    margin-bottom: 10px;
+  }
+
+  &__title {
+    @include font-size(400, 6px, 1.2);
+    color: rgba($black, 0.5);
+
+    margin-bottom: 7px;
+  }
+
+  &__bottom-text {
+    @include font-size(400, 6px, 1.2);
+    color: rgba($dark-text, 0.3);
+
+    padding-bottom: 45px;
+  }
+
+  &__scroll-list {
+    display: flex;
+    gap: 4px;
+
+    overflow-x: auto;
+
+    margin-bottom: 10px;
+
+    &::-webkit-scrollbar {
+      height: 2px;
+      width: 12px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: $grey;
+      border-radius: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $white;
+      border-radius: 5px;
+    }
+  }
+
+  &__scroll-item {
+    max-width: 126px;
+    margin-bottom: 4px;
+    padding-right: 4px;
+  }
+}

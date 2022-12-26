@@ -1,0 +1,86 @@
+.advantage-block {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  padding-bottom: 30px;
+
+  @media screen and (min-width: $screen-md) {
+    justify-content: flex-start;
+
+    padding: 30px 0;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media screen and (min-width: $screen-md) {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+  }
+
+  &__item-left {
+    position: relative;
+
+    flex-shrink: 0;
+
+    @media screen and (min-width: $screen-md) {
+      margin-right: 6px;
+    }
+
+    &:before {
+      content: "";
+      display: block;
+
+      width: 34px;
+      height: 34px;
+
+      position: absolute;
+      right: -10px;
+      top: 4px;
+
+      border-radius: 40px;
+      background: $accent-color;
+    }
+  }
+
+  &__item-img {
+    position: relative;
+    z-index: 2;
+
+    margin-bottom: 13px;
+  }
+
+  &__item-title {
+    @include font-size(700, 14px, 1.2);
+    color: $dark-text;
+
+    margin-bottom: 13px;
+  }
+
+  &__item-text {
+    @include font-size(400, 12px, 1.2);
+    color: $dark-text;
+
+    display: none;
+
+    @media screen and (min-width: $screen-md) {
+      display: block;
+    }
+  }
+
+  &__item-right {
+    position: relative;
+    z-index: 2;
+
+    margin-top: 11px;
+
+    text-align: center;
+
+    @media screen and (min-width: $screen-md) {
+      text-align: left;
+    }
+  }
+}

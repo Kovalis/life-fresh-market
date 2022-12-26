@@ -1,0 +1,131 @@
+.feedback-list {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+
+  padding: 13px 19px;
+  min-height: 118px;
+
+  background-color: $feedback-bg;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+
+  @media screen and (min-width: $screen-md) {
+    flex-direction: row;
+    gap: 40px;
+    padding: 10px 0;
+
+    &:after {
+      content: "";
+
+      position: absolute;
+      top: 9px;
+      bottom: 9px;
+      right: 0;
+      z-index: 2;
+
+      width: 100px;
+
+      background: linear-gradient(
+        270deg,
+        #ffffff 27.68%,
+        rgba(255, 255, 255, 0) 100%
+      );
+    }
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+
+      @media screen and (min-width: $screen-md) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__left {
+    @include flex-center;
+    gap: 27px;
+
+    flex-shrink: 0;
+
+    @media screen and (min-width: $screen-md) {
+      width: 174px;
+      display: block;
+      margin-left: 26px;
+    }
+  }
+
+  &__right {
+    position: relative;
+    overflow: hidden;
+
+    max-height: 333px;
+    padding-bottom: 30px;
+
+    &:before {
+      content: "";
+      display: block;
+      background: linear-gradient(
+        0deg,
+        #f8f8f8 49.46%,
+        rgba(248, 248, 248, 0) 100%
+      );
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 93px;
+      z-index: 2;
+    }
+
+    @media screen and (min-width: $screen-md) {
+      width: calc(100% - 240px);
+      max-height: auto;
+      padding-bottom: 0;
+    }
+  }
+
+  &__title {
+    @include font-size(700, 18px, 1.2);
+    color: $dark-text;
+
+    flex-shrink: 0;
+    width: 80px;
+
+    @media screen and (min-width: $screen-md) {
+      width: auto;
+      margin-bottom: 15px;
+    }
+  }
+
+  &__btn {
+    justify-content: center;
+    flex-grow: 1;
+
+    @media screen and (min-width: $screen-md) {
+      width: 100%;
+    }
+  }
+
+  &__more {
+    @include font-size(700, 12px, 1.2);
+    color: $dark-text;
+    text-align: center;
+    text-decoration: underline;
+
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 11px;
+    z-index: 3;
+
+    @media screen and (min-width: $screen-sm) {
+      display: none;
+    }
+  }
+}
