@@ -1,4 +1,35 @@
-// Базовые цвета https://colorscheme.ru/color-converter.html
+:root {
+  --color-black: #000;
+  --color-white: #fff;
+  --body-color: var(--front-primary);
+  --body-bg: var(--back-primary);
+  --font-base: var(--font-sans);
+  --font-sans: Inter, -apple-system, BlinkMacSystemFont, "Montserrat", "Segoe UI", "Roboto",
+    "Ubuntu", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-serif: Georgia, "Times New Roman", Times, serif;
+  --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, "Courier New", monospace;
+  --font-size-root: 100%;
+  --font-size-base: 1rem;
+  --font-weight-base: 400;
+  --line-height-base: 1.25;
+
+  // Семантические цвета
+
+  --brand-primary: #254fe1;
+  --front-primary: #000;
+  --front-secondary: #555;
+  --front-invert: #fff;
+  --back-primary: #fff;
+  --back-secondary: #f0f0f0;
+  --back-tertiary: #e0e0e0;
+
+  // Оформление
+
+  --border-primary: #aaa;
+  --link-color: #254fe1;
+  --shadow-default: 0 0 10px rgb(0 0 0 / 10%);
+}
 
 $black: hsl(0, 0%, 0%);
 $gray-darkest: hsl(0, 0%, 10%);
@@ -21,6 +52,7 @@ $red-color: #ff5c00;
 $rating-color: #ffc107;
 $feedback-bg: #f8f8f8;
 $scroll-bar-bg: #c7c7c7;
+$composition-text: #b4b4b4;
 
 $color-main: hsl(208, 98%, 43%);
 $color-success: hsl(120, 39%, 54%);
@@ -42,10 +74,10 @@ $link-color: $color-main;
 $link-color--hover: darken($color-main, 15%);
 
 $border-color: $gray-lighten;
-
-// Базовая типографика
+$typo-margin-vertical: 1em;
 
 $font-size: 16px;
+$line-height: 1.2;
 
 $font-size-h1: 40px;
 $font-size-h2: 32px;
@@ -56,29 +88,36 @@ $font-size-h6: 16px;
 
 $font-size-sm: 0.75em; // 12px от 16px
 
-$line-height: 1.5;
-
-$typo-margin-vertical: 1em;
-
-$font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Roboto",
-  "Ubuntu", "Droid Sans", "Helvetica Neue", "Arial", sans-serif,
-  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-$font-family--monospace: SFMono-Regular, Menlo, Monaco, Consolas,
-  Liberation Mono, Courier New, monospace;
-// Georgia, Times New Roman, Times, serif
+$font-family: "Montserrat", "Segoe UI", "Roboto", "Ubuntu", "Droid Sans", "Helvetica Neue", Arial,
+  sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-family--monospace: SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New,
+  monospace;
 
 // Ширины
 
-$screen-xs: 0;
-$screen-sm: 480px;
-$screen-md: 768px;
-$screen-lg: 992px;
-$screen-xl: 1280px;
+// $screen-xs: 0;
+// $screen-sm: 480px;
+// $screen-md: 768px;
+// $screen-lg: 992px;
+// $screen-xl: 1280px;
 
-$container-sm: 100%;
-$container-md: 100%;
-$container-lg: $screen-lg - 30;
-$container-xl: $screen-xl - 30;
+// $container-sm: 100%;
+// $container-md: 100%;
+// $container-lg: $screen-lg - 30;
+// $container-xl: $screen-xl - 30;
+
+$screen-m: 0;
+$screen-t: 480px;
+$screen-ti: 768px;
+$screen-tl: 992px;
+$screen-d: 1280px;
+$screen-dl: 1440px;
+$screen-dxl: 1680px;
+
+$container-m: 100%;
+$container-ti: 100%;
+$container-tl: $screen-tl - 30;
+$container-d: $screen-d - 30;
 
 // Модульная сетка
 
@@ -98,30 +137,7 @@ $opacity: 0.7;
 $transition-time: 0.3s;
 $shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.3);
 
-$menu-desktop-width: $screen-lg;
+$menu-desktop-width: $screen-tl;
 $toggler-part-height: 2px;
 
 $z-index-modal: 100;
-
-:root {
-  --body_bg: var(--color_white);
-  --body_color: var(--color_black);
-
-  --font_size_root: 100%;
-  --font_size_base: 1rem;
-  --font_weight_base: 400;
-
-  --color_light-dark: #0f0f10;
-  --color_grey-medium: #8f95aa;
-  --color_grey: #7e7e7e;
-  --color_pink: #d91869;
-  --color_pink_hover: #f11f77;
-  --color_pink-dark: #b3315e;
-  --color_green-light: #188664;
-  --color_green: #067256;
-  --color-yellow: #dc9138;
-  --color-light-yellow: #f2a84f;
-  --color-light-grey: #e8e8e8;
-  --color-button-hover: #e0e0e0;
-  --bg-input: #f3f3f3;
-}

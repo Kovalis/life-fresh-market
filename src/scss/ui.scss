@@ -1,27 +1,29 @@
 .container {
+  $this: &;
+
   max-width: 100%;
-  margin-left: $col-gap/2;
-  margin-right: $col-gap/2;
+  margin-left: calc($col-gap/2);
+  margin-right: calc($col-gap/2);
   gap: $col-gap;
 
-  @media screen and (min-width: $screen-lg) {
-    max-width: $screen-lg;
+  @media screen and (min-width: $screen-tl) {
+    max-width: $screen-tl;
     margin-left: auto;
     margin-right: auto;
   }
 
-  @media screen and (min-width: $screen-xl) {
-    max-width: $screen-xl;
+  @media screen and (min-width: $screen-d) {
+    max-width: $screen-d;
   }
 
   &__main {
     max-width: 100%;
 
-    @media screen and (min-width: $screen-lg) {
+    @media screen and (min-width: $screen-tl) {
       width: 100%;
     }
 
-    @media screen and (min-width: $screen-xl) {
+    @media screen and (min-width: $screen-d) {
       max-width: 1040px;
       width: calc(100% - (200px + 20px));
     }
@@ -30,7 +32,12 @@
   &__sidebar {
     display: none;
 
-    @media screen and (min-width: $screen-xl) {
+    @media screen and (min-width: $screen-t) {
+      position: relative;
+      z-index: 10;
+    }
+
+    @media screen and (min-width: $screen-d) {
       display: block;
 
       max-width: 200px;
@@ -40,8 +47,31 @@
   }
 
   &_flex {
-    @media screen and (min-width: $screen-xl) {
+    @media screen and (min-width: $screen-d) {
       display: flex;
+    }
+  }
+
+  &_basket {
+    @media screen and (min-width: $screen-d) {
+      max-width: 1631px;
+      display: grid;
+      grid-template-columns: 1fr 514px;
+      gap: 40px;
+
+      #{$this} {
+        &__main {
+          max-width: none;
+          width: auto;
+        }
+
+        &__sidebar {
+          width: auto;
+          max-width: none;
+
+          padding-top: 30px;
+        }
+      }
     }
   }
 }
@@ -49,25 +79,42 @@
 .show-in-mobile {
   display: block;
 
-  @media screen and (min-width: $screen-md) {
+  @media screen and (min-width: $screen-ti) {
     display: none;
+  }
+}
+
+input {
+  &[type="text"],
+  &[type="number"],
+  &[type="tel"] {
+    @include font-size(400, 16px, 1.2);
+
+    border: none;
+    border-radius: 5px;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+
+    border: 1px solid rgba($black, 0.1);
+    padding: 7.5px 15px !important;
+    width: 100%;
+
+    &::placeholder {
+      color: rgba($dark-text, 0.5);
+      font-size: 14px;
+    }
+
+    &:hover,
+    &:focus {
+      border-color: $black;
+    }
   }
 }
 
 .input-item {
   position: relative;
   padding-bottom: 20px;
-
-  &_has-value {
-    .input-item__label {
-      top: 8px;
-      font-size: 12px;
-    }
-
-    .input-item__close {
-      display: block;
-    }
-  }
 
   &__label {
     color: var(--color_grey);
@@ -97,29 +144,15 @@
     color: var(--color_pink);
   }
 
-  &__input {
-    width: 100%;
-    border-radius: 2px;
-    padding: 24px 32px 18px 16px;
-    border: none;
-    outline: none;
-    font-size: 16px;
+  &__placeholder {
+    @include font-size(400, 14px, 1);
+    color: rgba($black, 0.5);
 
-    &:disabled {
-      opacity: 0.5;
-    }
+    position: absolute;
+    left: 15px;
+    top: 12px;
 
-    &:hover,
-    &:focus {
-      border: none;
-    }
-
-    &:focus {
-      & + .input-item__label {
-        top: 8px;
-        font-size: 12px;
-      }
-    }
+    transition: top 0.3s;
   }
 
   &__close {
@@ -134,13 +167,40 @@
     cursor: pointer;
   }
 
+  &__date {
+    @include font-size(400, 16px, 1.2);
+
+    display: block;
+    border: 1px solid rgba($black, 0.1);
+    border-radius: 5px;
+    padding: 7.5px 15px !important;
+    width: 100%;
+    height: 36px;
+
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      border-color: $black;
+    }
+  }
+
   input {
     &::placeholder {
       color: var(--color_grey);
     }
 
+    &[type="text"],
+    &[type="number"],
+    &[type="tel"] {
+      position: relative;
+      z-index: 2;
+
+      background-color: transparent;
+    }
+
     &[type="checkbox"],
-    [type="radio"] {
+    &[type="radio"] {
       display: none;
 
       & + label {
@@ -154,7 +214,7 @@
         min-height: 32px;
         cursor: pointer;
 
-        @media screen and (min-width: $screen-lg) {
+        @media screen and (min-width: $screen-tl) {
           @include font-size(400, 18px, 1.44);
           padding-left: 56px;
         }
@@ -179,17 +239,70 @@
             text-decoration: none;
           }
         }
+
+        &.input-item__label-card {
+          @include font-size(700, 14px, 1.2);
+          @include flex-center;
+          justify-content: center;
+
+          border: none;
+          border-radius: 5px;
+          min-height: 49px;
+          -webkit-appearance: none;
+          appearance: none;
+          outline: none;
+
+          border: 1px solid rgba($black, 0.1);
+          padding: 7.5px 15px !important;
+          width: 100%;
+
+          text-align: center;
+
+          &::placeholder {
+            color: rgba($dark-text, 0.5);
+            font-size: 14px;
+          }
+
+          &:hover,
+          &:focus {
+            border-color: $black;
+          }
+        }
       }
     }
 
     &[type="checkbox"],
     &[type="radio"] {
       &:checked + label {
-        &::before {
-          content: "";
-          background-size: 17px;
+        &:not(.input-item__label-card) {
+          &::before {
+            content: "";
+            background-size: 17px;
+          }
+        }
+
+        &.input-item__label-card {
+          border-color: $accent-color;
+          border-width: 2px;
+          &::before {
+            content: "";
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: url("../img/check-card.svg") $white no-repeat center;
+            background-size: 20px;
+            border-radius: 20px;
+
+            position: absolute;
+            left: -10px;
+            top: -10px;
+          }
         }
       }
+    }
+
+    &[type="date"] {
+      display: none;
     }
   }
 
@@ -210,32 +323,11 @@
       display: block;
     }
   }
-}
 
-input {
-  &[type="text"],
-  &[type="number"] {
-    @include font-size(400, 16px, 1.2);
-
-    border: none;
-    border-radius: 10px;
-    -webkit-appearance: none;
-    appearance: none;
-    outline: none;
-
-    background-color: $grey;
-
-    padding: 12px 23px !important;
-    width: 100%;
-
-    &::placeholder {
-      color: rgba($dark-text, 0.5);
-      font-size: 14px;
-    }
-
-    &:hover,
-    &:focus {
-      border: none;
+  &_has-value {
+    .input-item__placeholder {
+      @include font-size(400, 8px, 1.2);
+      top: -17px;
     }
   }
 }
@@ -275,7 +367,7 @@ input {
   position: relative;
   padding-bottom: 33px;
 
-  @media screen and (min-width: $screen-md) {
+  @media screen and (min-width: $screen-ti) {
     @include font-size(700, 24px, 1.2);
   }
 
@@ -301,13 +393,7 @@ input {
 
   &_blue {
     &::before {
-      background: linear-gradient(
-          90deg,
-          #00d1ff 0%,
-          #17bade 0.01%,
-          #14d28e 100%
-        ),
-        #a1d214;
+      background: linear-gradient(90deg, #00d1ff 0%, #17bade 0.01%, #14d28e 100%), #a1d214;
     }
   }
 
@@ -329,7 +415,7 @@ input {
 
   max-width: 100%;
 
-  @media screen and (min-width: $screen-md) {
+  @media screen and (min-width: $screen-ti) {
     background-color: $white;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
@@ -338,7 +424,7 @@ input {
   }
 
   .swiper-scrollbar {
-    @media screen and (min-width: $screen-xl) {
+    @media screen and (min-width: $screen-d) {
       display: none;
     }
   }
@@ -348,16 +434,23 @@ input {
   @include font-size(700, 11px, 1.2);
   color: $red-color;
 
-  @media screen and (min-width: $screen-md) {
+  @media screen and (min-width: $screen-ti) {
     @include font-size(700, 14px, 1.2);
+
+    &_basket {
+      @include font-size(700, 24px, 1);
+    }
   }
 }
 
 .price-old {
   @include font-size(500, 8px, 1.2);
   color: $dark-grey;
+
+  display: inline-block;
+  padding-left: 2px;
+  padding-right: 2px;
   position: relative;
-  margin-left: 8px;
 
   &:after {
     content: "";
@@ -373,7 +466,7 @@ input {
     background-color: $red-color;
   }
 
-  @media screen and (min-width: $screen-md) {
+  @media screen and (min-width: $screen-ti) {
     @include font-size(500, 10px, 1.2);
   }
 }
@@ -400,7 +493,7 @@ input {
       }
     }
 
-    @media screen and (min-width: $screen-md) {
+    @media screen and (min-width: $screen-ti) {
       width: 12px;
       height: 12px;
     }
@@ -442,6 +535,7 @@ input {
 
 .swiper-button-prev {
   left: 0;
+  transform: rotate(-180deg);
 }
 
 .swiper-button-disabled {
@@ -499,4 +593,107 @@ input {
     height: 24px;
     flex-shrink: 0;
   }
+}
+
+.composition-list {
+  &__item {
+    @include font-size(400, 14px, 1.2);
+    color: $dark-text;
+
+    display: flex;
+    gap: 5px;
+  }
+
+  &__item-text {
+    color: $composition-text;
+  }
+}
+
+.favorite-btn {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+
+  width: 20px;
+  height: 20px;
+
+  cursor: pointer;
+  svg {
+    width: 100%;
+    height: 100%;
+
+    * {
+      color: rgba($svg-grey, 0.3);
+      transition: 0.3s color;
+    }
+  }
+
+  &:hover,
+  &_active {
+    svg {
+      * {
+        color: $accent-color;
+      }
+    }
+  }
+}
+
+.basket-count-wrap {
+  @include flex-center;
+  gap: 5px;
+
+  &__count {
+    min-width: 30px;
+    text-align: center;
+  }
+
+  &__btn {
+    @include font-size(400, 14px, 1.2);
+    @include clear-button;
+
+    color: $dark-text;
+  }
+}
+
+.promocode-link {
+  @include font-size(400, 12px, 1.2);
+  color: rgba($dark-text, 0.7);
+  text-align: center;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+.badge {
+  @include font-size(700, 8px, 1);
+  color: $white;
+  text-align: center;
+  background-color: $red-color;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 4px 7px;
+
+  &_big {
+    @include font-size(700, 12px, 1);
+
+    padding: 7px 13px;
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+  transition: background-color 0s ease-in-out 0s;
+  color: #000;
+  -webkit-text-fill-color: #000;
+  background: transparent;
 }

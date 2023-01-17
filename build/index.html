@@ -10,11 +10,9 @@
   <meta name="format-detection" content="email=no">
   <meta content="notranslate" name="google">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
-  <title>Главная</title>
+  <title>Разводящая страница</title>
   <meta name="description" content="">
-  <link rel="stylesheet" href="css/style.css">
-  <script>
-// Убрать на html класс "no-js", добавить класс "js": с уровня стилей знаем работает ли JS
+  <link rel="stylesheet" href="css/style.css"><script>// Убрать на html класс "no-js", добавить класс "js": с уровня стилей знаем работает ли JS
 document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
 
 // Браузер и ОС
@@ -22,8 +20,8 @@ function cth(c){document.documentElement.classList.add(c)}
 'ontouchstart' in window?cth('touch'):cth('no-touch');
 if(typeof InstallTrigger!=='undefined')cth('firefox');
 if(/constructor/i.test(window.HTMLElement)||(function(p){return p.toString()==="[object SafariRemoteNotification]"})(!window['safari']||(typeof safari!=='undefined'&&safari.pushNotification)))cth('safari');
-if(/*@cc_on!@*/false||!!document.documentMode)cth('ie');
-if(!(/*@cc_on!@*/false||!!document.documentMode)&&!!window.StyleMedia)cth('edge');
+if(/*@cc_on!@*/!!document.documentMode)cth('ie');
+if(!(!!document.documentMode)&&!!window.StyleMedia)cth('edge');
 if(!!window.chrome&&(!!window.chrome.webstore||!!window.chrome.runtime))cth('chrome');
 if(~navigator.appVersion.indexOf("Win"))cth('windows');
 if(~navigator.appVersion.indexOf("Mac"))cth('osx');
@@ -60,8 +58,8 @@ window.addEventListener('resize', () => {
         <div class="header__bottom">
           <div class="container">
             <div class="header__bottom-inner">
-              <div class="header__bottom-inner-left"><button class="header__btn-catalog main-btn main-btn_big"><img src="./img/search-btn.svg" alt="catalog" width="22" height="17" />Каталог</button>
-                <div class="burger-menu">
+              <div class="header__bottom-inner-left"><button class="header__btn-catalog main-btn main-btn_big js-burger-menu"><img src="./img/search-btn.svg" alt="catalog" width="22" height="17" />Каталог</button>
+                <div class="burger-menu js-burger-menu">
                   <div class="burger-menu__item"> </div>
                   <div class="burger-menu__item"> </div>
                   <div class="burger-menu__item"> </div>
@@ -73,7 +71,7 @@ window.addEventListener('resize', () => {
                     <use xlink:href="./img/lk.svg#svg"></use>
                   </svg>Кабинет</a><a class="header__bottom-nav-item" href="#"><svg>
                     <use xlink:href="./img/hearth.svg#svg"></use>
-                  </svg>Избранное</a><a class="header__bottom-nav-item" href="#"><svg>
+                  </svg>Избранное</a><a class="header__bottom-nav-item header__bottom-nav-item_active" href="#"><svg>
                     <use xlink:href="./img/cart.svg#svg"></use>
                   </svg>Корзина</a></div>
             </div>
@@ -81,1282 +79,308 @@ window.addEventListener('resize', () => {
         </div>
       </header>
       <div class="mobile-menu">
-        <div class="mobile-menu__title">Выберите категорию</div>
-        <ul class="mobile-menu__list">
-          <li class="mobile-menu__li"><a class="mobile-menu__a mobile-menu__a_submenu" href="#">
-              <div class="mobile-menu__img"><img src="./img/groceries.svg" alt="" /></div><span>Акционные товары</span>
-            </a>
-            <div class="mobile-menu__submenu">
-              <div class="mobile-menu__submenu-title">text</div>
-              <div class="mobile-menu__submenu-ul">
-                <div class="mobile-menu__submenu-li"><a class="mobile-menu__submenu-link" href="#">Молоко</a><a class="mobile-menu__submenu-link" href="#">Сливки</a><a class="mobile-menu__submenu-link" href="#">Кисломолочная продукция</a><a class="mobile-menu__submenu-link" href="#">Йогурты и йогуртные продукты</a><a class="mobile-menu__submenu-link" href="#">Творог и творожные изделия</a><a class="mobile-menu__submenu-link" href="#">Сметана</a><a class="mobile-menu__submenu-link" href="#">Сыры</a><a class="mobile-menu__submenu-link" href="#">Яйцо</a><a class="mobile-menu__submenu-link" href="#">Мороженое</a></div>
+        <div class="mobile-menu__wrap">
+          <div class="mobile-menu__title">Выберите категорию</div>
+          <ul class="mobile-menu__list">
+            <li class="mobile-menu__li"><a class="mobile-menu__a mobile-menu__a_submenu" href="#">
+                <div class="mobile-menu__img"><img src="./img/groceries.svg" alt="" /></div><span>Акционные товары</span>
+              </a>
+              <div class="submenu">
+                <div class="submenu__title">text11</div>
+                <div class="submenu__ul">
+                  <div class="submenu__li"><a class="submenu__link" href="#">Молоко</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сливки</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Кисломолочная продукция</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Йогурты и йогуртные продукты</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Творог и творожные изделия</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сметана</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сыры</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Яйцо</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Мороженое</a></div>
+                </div>
               </div>
-            </div>
-          </li>
-          <li class="mobile-menu__li"><a class="mobile-menu__a mobile-menu__a_submenu" href="#">
-              <div class="mobile-menu__img"><img src="./img/chef_menu.svg" alt="" /></div><span>Собственное производство</span>
-            </a>
-            <div class="mobile-menu__submenu">
-              <div class="mobile-menu__submenu-title">text2</div>
-              <div class="mobile-menu__submenu-ul">
-                <div class="mobile-menu__submenu-li"><a class="mobile-menu__submenu-link" href="#">Молоко</a><a class="mobile-menu__submenu-link" href="#">Сливки</a><a class="mobile-menu__submenu-link" href="#">Кисломолочная продукция</a><a class="mobile-menu__submenu-link" href="#">Йогурты и йогуртные продукты</a><a class="mobile-menu__submenu-link" href="#">Творог и творожные изделия</a><a class="mobile-menu__submenu-link" href="#">Сметана</a><a class="mobile-menu__submenu-link" href="#">Сыры</a><a class="mobile-menu__submenu-link" href="#">Яйцо</a><a class="mobile-menu__submenu-link" href="#">Мороженое</a></div>
+            </li>
+            <li class="mobile-menu__li"><a class="mobile-menu__a mobile-menu__a_submenu" href="#">
+                <div class="mobile-menu__img"><img src="./img/chef_menu.svg" alt="" /></div><span>Собственное производство</span>
+              </a>
+              <div class="submenu">
+                <div class="submenu__title">text11</div>
+                <div class="submenu__ul">
+                  <div class="submenu__li"><a class="submenu__link" href="#">Молоко</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сливки</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Кисломолочная продукция</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Йогурты и йогуртные продукты</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Творог и творожные изделия</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сметана</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сыры</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Яйцо</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Мороженое</a></div>
+                </div>
               </div>
-            </div>
-          </li>
-          <li class="mobile-menu__li"><a class="mobile-menu__a mobile-menu__a_submenu" href="#">
-              <div class="mobile-menu__img"><img src="./img/flour.svg" alt="" /></div><span>Бакалея</span>
-            </a>
-            <div class="mobile-menu__submenu">
-              <div class="mobile-menu__submenu-title">text3</div>
-              <div class="mobile-menu__submenu-ul">
-                <div class="mobile-menu__submenu-li"><a class="mobile-menu__submenu-link" href="#">Молоко</a><a class="mobile-menu__submenu-link" href="#">Сливки</a><a class="mobile-menu__submenu-link" href="#">Кисломолочная продукция</a><a class="mobile-menu__submenu-link" href="#">Йогурты и йогуртные продукты</a><a class="mobile-menu__submenu-link" href="#">Творог и творожные изделия</a><a class="mobile-menu__submenu-link" href="#">Сметана</a><a class="mobile-menu__submenu-link" href="#">Сыры</a><a class="mobile-menu__submenu-link" href="#">Яйцо</a><a class="mobile-menu__submenu-link" href="#">Мороженое</a></div>
+            </li>
+            <li class="mobile-menu__li"><a class="mobile-menu__a mobile-menu__a_submenu" href="#">
+                <div class="mobile-menu__img"><img src="./img/flour.svg" alt="" /></div><span>Бакалея</span>
+              </a>
+              <div class="submenu">
+                <div class="submenu__title">text11</div>
+                <div class="submenu__ul">
+                  <div class="submenu__li"><a class="submenu__link" href="#">Молоко</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сливки</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Кисломолочная продукция</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Йогурты и йогуртные продукты</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Творог и творожные изделия</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сметана</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сыры</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Яйцо</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Мороженое</a></div>
+                </div>
               </div>
-            </div>
-          </li>
-          <li class="mobile-menu__li"><a class="mobile-menu__a mobile-menu__a_submenu" href="#">
-              <div class="mobile-menu__img"><img src="./img/steak.svg" alt="" /></div><span>Мясо и рыба</span>
-            </a>
-            <div class="mobile-menu__submenu">
-              <div class="mobile-menu__submenu-title">text4</div>
-              <div class="mobile-menu__submenu-ul">
-                <div class="mobile-menu__submenu-li"><a class="mobile-menu__submenu-link" href="#">Молоко</a><a class="mobile-menu__submenu-link" href="#">Сливки</a><a class="mobile-menu__submenu-link" href="#">Кисломолочная продукция</a><a class="mobile-menu__submenu-link" href="#">Йогурты и йогуртные продукты</a><a class="mobile-menu__submenu-link" href="#">Творог и творожные изделия</a><a class="mobile-menu__submenu-link" href="#">Сметана</a><a class="mobile-menu__submenu-link" href="#">Сыры</a><a class="mobile-menu__submenu-link" href="#">Яйцо</a><a class="mobile-menu__submenu-link" href="#">Мороженое</a></div>
+            </li>
+            <li class="mobile-menu__li"><a class="mobile-menu__a mobile-menu__a_submenu" href="#">
+                <div class="mobile-menu__img"><img src="./img/steak.svg" alt="" /></div><span>Мясо и рыба</span>
+              </a>
+              <div class="submenu">
+                <div class="submenu__title">text11</div>
+                <div class="submenu__ul">
+                  <div class="submenu__li"><a class="submenu__link" href="#">Молоко</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сливки</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Кисломолочная продукция</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Йогурты и йогуртные продукты</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Творог и творожные изделия</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сметана</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сыры</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Яйцо</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Мороженое</a></div>
+                </div>
               </div>
-            </div>
-          </li>
-          <li class="mobile-menu__li"><a class="mobile-menu__a mobile-menu__a_submenu" href="#">
-              <div class="mobile-menu__img"><img src="./img/milk.svg" alt="" /></div><span>Молочные продукты</span>
-            </a>
-            <div class="mobile-menu__submenu">
-              <div class="mobile-menu__submenu-title">text5</div>
-              <div class="mobile-menu__submenu-ul">
-                <div class="mobile-menu__submenu-li"><a class="mobile-menu__submenu-link" href="#">Молоко</a><a class="mobile-menu__submenu-link" href="#">Сливки</a><a class="mobile-menu__submenu-link" href="#">Кисломолочная продукция</a><a class="mobile-menu__submenu-link" href="#">Йогурты и йогуртные продукты</a><a class="mobile-menu__submenu-link" href="#">Творог и творожные изделия</a><a class="mobile-menu__submenu-link" href="#">Сметана</a><a class="mobile-menu__submenu-link" href="#">Сыры</a><a class="mobile-menu__submenu-link" href="#">Яйцо</a><a class="mobile-menu__submenu-link" href="#">Мороженое</a></div>
+            </li>
+            <li class="mobile-menu__li"><a class="mobile-menu__a mobile-menu__a_submenu" href="#">
+                <div class="mobile-menu__img"><img src="./img/milk.svg" alt="" /></div><span>Молочные продукты</span>
+              </a>
+              <div class="submenu">
+                <div class="submenu__title">text11</div>
+                <div class="submenu__ul">
+                  <div class="submenu__li"><a class="submenu__link" href="#">Молоко</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сливки</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Кисломолочная продукция</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Йогурты и йогуртные продукты</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Творог и творожные изделия</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сметана</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сыры</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Яйцо</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Мороженое</a></div>
+                </div>
               </div>
-            </div>
-          </li>
-          <li class="mobile-menu__li"><a class="mobile-menu__a mobile-menu__a_submenu" href="#">
-              <div class="mobile-menu__img"><img src="./img/salad.svg" alt="" /></div><span>Фрукты, овощи</span>
-            </a>
-            <div class="mobile-menu__submenu">
-              <div class="mobile-menu__submenu-title">text6</div>
-              <div class="mobile-menu__submenu-ul">
-                <div class="mobile-menu__submenu-li"><a class="mobile-menu__submenu-link" href="#">Молоко</a><a class="mobile-menu__submenu-link" href="#">Сливки</a><a class="mobile-menu__submenu-link" href="#">Кисломолочная продукция</a><a class="mobile-menu__submenu-link" href="#">Йогурты и йогуртные продукты</a><a class="mobile-menu__submenu-link" href="#">Творог и творожные изделия</a><a class="mobile-menu__submenu-link" href="#">Сметана</a><a class="mobile-menu__submenu-link" href="#">Сыры</a><a class="mobile-menu__submenu-link" href="#">Яйцо</a><a class="mobile-menu__submenu-link" href="#">Мороженое</a></div>
+            </li>
+            <li class="mobile-menu__li"><a class="mobile-menu__a mobile-menu__a_submenu" href="#">
+                <div class="mobile-menu__img"><img src="./img/salad.svg" alt="" /></div><span>Фрукты, овощи</span>
+              </a>
+              <div class="submenu">
+                <div class="submenu__title">text11</div>
+                <div class="submenu__ul">
+                  <div class="submenu__li"><a class="submenu__link" href="#">Молоко</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сливки</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Кисломолочная продукция</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Йогурты и йогуртные продукты</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Творог и творожные изделия</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сметана</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сыры</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Яйцо</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Мороженое</a></div>
+                </div>
               </div>
-            </div>
-          </li>
-          <li class="mobile-menu__li"><a class="mobile-menu__a mobile-menu__a_submenu" href="#">
-              <div class="mobile-menu__img"><img src="./img/dumpling.svg" alt="" /></div><span>Замороженные продукты</span>
-            </a>
-            <div class="mobile-menu__submenu">
-              <div class="mobile-menu__submenu-title">text7</div>
-              <div class="mobile-menu__submenu-ul">
-                <div class="mobile-menu__submenu-li"><a class="mobile-menu__submenu-link" href="#">Молоко</a><a class="mobile-menu__submenu-link" href="#">Сливки</a><a class="mobile-menu__submenu-link" href="#">Кисломолочная продукция</a><a class="mobile-menu__submenu-link" href="#">Йогурты и йогуртные продукты</a><a class="mobile-menu__submenu-link" href="#">Творог и творожные изделия</a><a class="mobile-menu__submenu-link" href="#">Сметана</a><a class="mobile-menu__submenu-link" href="#">Сыры</a><a class="mobile-menu__submenu-link" href="#">Яйцо</a><a class="mobile-menu__submenu-link" href="#">Мороженое</a></div>
+            </li>
+            <li class="mobile-menu__li"><a class="mobile-menu__a mobile-menu__a_submenu" href="#">
+                <div class="mobile-menu__img"><img src="./img/dumpling.svg" alt="" /></div><span>Замороженные продукты</span>
+              </a>
+              <div class="submenu">
+                <div class="submenu__title">text11</div>
+                <div class="submenu__ul">
+                  <div class="submenu__li"><a class="submenu__link" href="#">Молоко</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сливки</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Кисломолочная продукция</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Йогурты и йогуртные продукты</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Творог и творожные изделия</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сметана</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сыры</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Яйцо</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Мороженое</a></div>
+                </div>
               </div>
-            </div>
-          </li>
-          <li class="mobile-menu__li"><a class="mobile-menu__a mobile-menu__a_submenu" href="#">
-              <div class="mobile-menu__img"><img src="./img/water.svg" alt="" /></div><span>Вода, напитки, соки</span>
-            </a>
-            <div class="mobile-menu__submenu">
-              <div class="mobile-menu__submenu-title">text8</div>
-              <div class="mobile-menu__submenu-ul">
-                <div class="mobile-menu__submenu-li"><a class="mobile-menu__submenu-link" href="#">Молоко</a><a class="mobile-menu__submenu-link" href="#">Сливки</a><a class="mobile-menu__submenu-link" href="#">Кисломолочная продукция</a><a class="mobile-menu__submenu-link" href="#">Йогурты и йогуртные продукты</a><a class="mobile-menu__submenu-link" href="#">Творог и творожные изделия</a><a class="mobile-menu__submenu-link" href="#">Сметана</a><a class="mobile-menu__submenu-link" href="#">Сыры</a><a class="mobile-menu__submenu-link" href="#">Яйцо</a><a class="mobile-menu__submenu-link" href="#">Мороженое</a></div>
+            </li>
+            <li class="mobile-menu__li"><a class="mobile-menu__a mobile-menu__a_submenu" href="#">
+                <div class="mobile-menu__img"><img src="./img/water.svg" alt="" /></div><span>Вода, напитки, соки</span>
+              </a>
+              <div class="submenu">
+                <div class="submenu__title">text11</div>
+                <div class="submenu__ul">
+                  <div class="submenu__li"><a class="submenu__link" href="#">Молоко</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сливки</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Кисломолочная продукция</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Йогурты и йогуртные продукты</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Творог и творожные изделия</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сметана</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сыры</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Яйцо</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Мороженое</a></div>
+                </div>
               </div>
-            </div>
-          </li>
-          <li class="mobile-menu__li"><a class="mobile-menu__a mobile-menu__a_submenu" href="#">
-              <div class="mobile-menu__img"><img src="./img/toast.svg" alt="" /></div><span>Хлеб, кондитерские изделия</span>
-            </a>
-            <div class="mobile-menu__submenu">
-              <div class="mobile-menu__submenu-title">text9</div>
-              <div class="mobile-menu__submenu-ul">
-                <div class="mobile-menu__submenu-li"><a class="mobile-menu__submenu-link" href="#">Молоко</a><a class="mobile-menu__submenu-link" href="#">Сливки</a><a class="mobile-menu__submenu-link" href="#">Кисломолочная продукция</a><a class="mobile-menu__submenu-link" href="#">Йогурты и йогуртные продукты</a><a class="mobile-menu__submenu-link" href="#">Творог и творожные изделия</a><a class="mobile-menu__submenu-link" href="#">Сметана</a><a class="mobile-menu__submenu-link" href="#">Сыры</a><a class="mobile-menu__submenu-link" href="#">Яйцо</a><a class="mobile-menu__submenu-link" href="#">Мороженое</a></div>
+            </li>
+            <li class="mobile-menu__li"><a class="mobile-menu__a mobile-menu__a_submenu" href="#">
+                <div class="mobile-menu__img"><img src="./img/toast.svg" alt="" /></div><span>Хлеб, кондитерские изделия</span>
+              </a>
+              <div class="submenu">
+                <div class="submenu__title">text11</div>
+                <div class="submenu__ul">
+                  <div class="submenu__li"><a class="submenu__link" href="#">Молоко</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сливки</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Кисломолочная продукция</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Йогурты и йогуртные продукты</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Творог и творожные изделия</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сметана</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сыры</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Яйцо</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Мороженое</a></div>
+                </div>
               </div>
-            </div>
-          </li>
-          <li class="mobile-menu__li"><a class="mobile-menu__a mobile-menu__a_submenu" href="#">
-              <div class="mobile-menu__img"><img src="./img/tea.svg" alt="" /></div><span>Чай, кофе</span>
-            </a>
-            <div class="mobile-menu__submenu">
-              <div class="mobile-menu__submenu-title">text10</div>
-              <div class="mobile-menu__submenu-ul">
-                <div class="mobile-menu__submenu-li"><a class="mobile-menu__submenu-link" href="#">Молоко</a><a class="mobile-menu__submenu-link" href="#">Сливки</a><a class="mobile-menu__submenu-link" href="#">Кисломолочная продукция</a><a class="mobile-menu__submenu-link" href="#">Йогурты и йогуртные продукты</a><a class="mobile-menu__submenu-link" href="#">Творог и творожные изделия</a><a class="mobile-menu__submenu-link" href="#">Сметана</a><a class="mobile-menu__submenu-link" href="#">Сыры</a><a class="mobile-menu__submenu-link" href="#">Яйцо</a><a class="mobile-menu__submenu-link" href="#">Мороженое</a></div>
+            </li>
+            <li class="mobile-menu__li"><a class="mobile-menu__a mobile-menu__a_submenu" href="#">
+                <div class="mobile-menu__img"><img src="./img/tea.svg" alt="" /></div><span>Чай, кофе</span>
+              </a>
+              <div class="submenu">
+                <div class="submenu__title">text11</div>
+                <div class="submenu__ul">
+                  <div class="submenu__li"><a class="submenu__link" href="#">Молоко</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сливки</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Кисломолочная продукция</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Йогурты и йогуртные продукты</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Творог и творожные изделия</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сметана</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сыры</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Яйцо</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Мороженое</a></div>
+                </div>
               </div>
-            </div>
-          </li>
-          <li class="mobile-menu__li"><a class="mobile-menu__a mobile-menu__a_submenu" href="#">
-              <div class="mobile-menu__img"><img src="./img/grain.svg" alt="" /></div><span>Здоровое питание</span>
-            </a>
-            <div class="mobile-menu__submenu">
-              <div class="mobile-menu__submenu-title">text11</div>
-              <div class="mobile-menu__submenu-ul">
-                <div class="mobile-menu__submenu-li"><a class="mobile-menu__submenu-link" href="#">Молоко</a><a class="mobile-menu__submenu-link" href="#">Сливки</a><a class="mobile-menu__submenu-link" href="#">Кисломолочная продукция</a><a class="mobile-menu__submenu-link" href="#">Йогурты и йогуртные продукты</a><a class="mobile-menu__submenu-link" href="#">Творог и творожные изделия</a><a class="mobile-menu__submenu-link" href="#">Сметана</a><a class="mobile-menu__submenu-link" href="#">Сыры</a><a class="mobile-menu__submenu-link" href="#">Яйцо</a><a class="mobile-menu__submenu-link" href="#">Мороженое</a></div>
+            </li>
+            <li class="mobile-menu__li"><a class="mobile-menu__a mobile-menu__a_submenu" href="#">
+                <div class="mobile-menu__img"><img src="./img/grain.svg" alt="" /></div><span>Здоровое питание</span>
+              </a>
+              <div class="submenu">
+                <div class="submenu__title">text11</div>
+                <div class="submenu__ul">
+                  <div class="submenu__li"><a class="submenu__link" href="#">Молоко</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сливки</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Кисломолочная продукция</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Йогурты и йогуртные продукты</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Творог и творожные изделия</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сметана</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сыры</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Яйцо</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Мороженое</a></div>
+                </div>
               </div>
-            </div>
-          </li>
-          <li class="mobile-menu__li"><a class="mobile-menu__a mobile-menu__a_submenu" href="#">
-              <div class="mobile-menu__img"><img src="./img/gingerbread.svg" alt="" /></div><span>Детское питание</span>
-            </a>
-            <div class="mobile-menu__submenu">
-              <div class="mobile-menu__submenu-title">text12</div>
-              <div class="mobile-menu__submenu-ul">
-                <div class="mobile-menu__submenu-li"><a class="mobile-menu__submenu-link" href="#">Молоко</a><a class="mobile-menu__submenu-link" href="#">Сливки</a><a class="mobile-menu__submenu-link" href="#">Кисломолочная продукция</a><a class="mobile-menu__submenu-link" href="#">Йогурты и йогуртные продукты</a><a class="mobile-menu__submenu-link" href="#">Творог и творожные изделия</a><a class="mobile-menu__submenu-link" href="#">Сметана</a><a class="mobile-menu__submenu-link" href="#">Сыры</a><a class="mobile-menu__submenu-link" href="#">Яйцо</a><a class="mobile-menu__submenu-link" href="#">Мороженое</a></div>
+            </li>
+            <li class="mobile-menu__li"><a class="mobile-menu__a mobile-menu__a_submenu" href="#">
+                <div class="mobile-menu__img"><img src="./img/gingerbread.svg" alt="" /></div><span>Детское питание</span>
+              </a>
+              <div class="submenu">
+                <div class="submenu__title">text11</div>
+                <div class="submenu__ul">
+                  <div class="submenu__li"><a class="submenu__link" href="#">Молоко</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сливки</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Кисломолочная продукция</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Йогурты и йогуртные продукты</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Творог и творожные изделия</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сметана</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сыры</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Яйцо</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Мороженое</a></div>
+                </div>
               </div>
-            </div>
-          </li>
-          <li class="mobile-menu__li"><a class="mobile-menu__a mobile-menu__a_submenu" href="#">
-              <div class="mobile-menu__img"><img src="./img/cooking.svg" alt="" /></div><span>Товары восточной кухни</span>
-            </a>
-            <div class="mobile-menu__submenu">
-              <div class="mobile-menu__submenu-title">text13</div>
-              <div class="mobile-menu__submenu-ul">
-                <div class="mobile-menu__submenu-li"><a class="mobile-menu__submenu-link" href="#">Молоко</a><a class="mobile-menu__submenu-link" href="#">Сливки</a><a class="mobile-menu__submenu-link" href="#">Кисломолочная продукция</a><a class="mobile-menu__submenu-link" href="#">Йогурты и йогуртные продукты</a><a class="mobile-menu__submenu-link" href="#">Творог и творожные изделия</a><a class="mobile-menu__submenu-link" href="#">Сметана</a><a class="mobile-menu__submenu-link" href="#">Сыры</a><a class="mobile-menu__submenu-link" href="#">Яйцо</a><a class="mobile-menu__submenu-link" href="#">Мороженое</a></div>
+            </li>
+            <li class="mobile-menu__li"><a class="mobile-menu__a mobile-menu__a_submenu" href="#">
+                <div class="mobile-menu__img"><img src="./img/cooking.svg" alt="" /></div><span>Товары восточной кухни</span>
+              </a>
+              <div class="submenu">
+                <div class="submenu__title">text11</div>
+                <div class="submenu__ul">
+                  <div class="submenu__li"><a class="submenu__link" href="#">Молоко</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сливки</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Кисломолочная продукция</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Йогурты и йогуртные продукты</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Творог и творожные изделия</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сметана</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сыры</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Яйцо</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Мороженое</a></div>
+                </div>
               </div>
-            </div>
-          </li>
-          <li class="mobile-menu__li"><a class="mobile-menu__a mobile-menu__a_submenu" href="#">
-              <div class="mobile-menu__img"><img src="./img/condiment.svg" alt="" /></div><span>Бытовая химия, хозтовары</span>
-            </a>
-            <div class="mobile-menu__submenu">
-              <div class="mobile-menu__submenu-title">text14</div>
-              <div class="mobile-menu__submenu-ul">
-                <div class="mobile-menu__submenu-li"><a class="mobile-menu__submenu-link" href="#">Молоко</a><a class="mobile-menu__submenu-link" href="#">Сливки</a><a class="mobile-menu__submenu-link" href="#">Кисломолочная продукция</a><a class="mobile-menu__submenu-link" href="#">Йогурты и йогуртные продукты</a><a class="mobile-menu__submenu-link" href="#">Творог и творожные изделия</a><a class="mobile-menu__submenu-link" href="#">Сметана</a><a class="mobile-menu__submenu-link" href="#">Сыры</a><a class="mobile-menu__submenu-link" href="#">Яйцо</a><a class="mobile-menu__submenu-link" href="#">Мороженое</a></div>
+            </li>
+            <li class="mobile-menu__li"><a class="mobile-menu__a mobile-menu__a_submenu" href="#">
+                <div class="mobile-menu__img"><img src="./img/condiment.svg" alt="" /></div><span>Бытовая химия, хозтовары</span>
+              </a>
+              <div class="submenu">
+                <div class="submenu__title">text11</div>
+                <div class="submenu__ul">
+                  <div class="submenu__li"><a class="submenu__link" href="#">Молоко</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сливки</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Кисломолочная продукция</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Йогурты и йогуртные продукты</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Творог и творожные изделия</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сметана</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Сыры</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Яйцо</a></div>
+                  <div class="submenu__li"><a class="submenu__link" href="#">Мороженое</a></div>
+                </div>
               </div>
-            </div>
-          </li>
-          <li class="mobile-menu__li"><a class="mobile-menu__a mobile-menu__a_submenu" href="#">
-              <div class="mobile-menu__img"></div><span>Зоотовары</span>
-            </a></li>
-        </ul>
+            </li>
+            <li class="mobile-menu__li"><a class="mobile-menu__a mobile-menu__a_submenu" href="#">
+                <div class="mobile-menu__img"></div><span>Зоотовары</span>
+              </a></li>
+          </ul>
+        </div>
       </div>
       <div class="container container_flex">
         <div class="container__main">
-          <div class="main-slider">
-            <div class="swiper">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="./img/first.png" alt="first" width="855" height="361" /></div>
-                <div class="swiper-slide"><img src="./img/lime.png" alt="lime" width="855" height="361" /></div>
-                <div class="swiper-slide"><img src="./img/pizza.png" alt="pizza" width="855" height="361" /></div>
-                <div class="swiper-slide"><img src="./img/chef.png" alt="chef" width="855" height="361" /></div>
-                <div class="swiper-slide"><img src="./img/delivery.png" alt="delivery" width="855" height="361" /></div>
-              </div>
-              <div class="swiper-button-prev"></div>
-              <div class="swiper-button-next"></div>
-            </div>
-          </div>
-          <section class="advantage-block">
-            <div class="advantage-block__item">
-              <div class="advantage-block__item-left"><img class="advantage-block__item-img" src="./img/chef.svg" alt="chef" width="40" height="40" /></div>
-              <div class="advantage-block__item-right">
-                <div class="advantage-block__item-title">Качество продуктов</div>
-                <div class="advantage-block__item-text">Выбирайте из 40 000 товаров: у нас есть фрукты и овощи, мясо и рыба, все для дома и товары для животных</div>
-              </div>
-            </div>
-            <div class="advantage-block__item">
-              <div class="advantage-block__item-left"><img class="advantage-block__item-img" src="./img/reservation.svg" alt="reservation" width="40" height="40" /></div>
-              <div class="advantage-block__item-right">
-                <div class="advantage-block__item-title">Легкий заказ</div>
-                <div class="advantage-block__item-text">Выбирайте из 40 000 товаров: у нас есть фрукты и овощи, мясо и рыба, все для дома и товары для животных</div>
-              </div>
-            </div>
-            <div class="advantage-block__item">
-              <div class="advantage-block__item-left"><img class="advantage-block__item-img" src="./img/reception-bell.svg" alt="reception-bell" width="40" height="40" /></div>
-              <div class="advantage-block__item-right">
-                <div class="advantage-block__item-title">Доставка до двери</div>
-                <div class="advantage-block__item-text">Выбирайте из 40 000 товаров: у нас есть фрукты и овощи, мясо и рыба, все для дома и товары для животных</div>
-              </div>
-            </div>
-            <div class="advantage-block__item">
-              <div class="advantage-block__item-left"><img class="advantage-block__item-img" src="./img/recommended.svg" alt="recommended" width="40" height="40" /></div>
-              <div class="advantage-block__item-right">
-                <div class="advantage-block__item-title">Выбор покупателей</div>
-                <div class="advantage-block__item-text">Выбирайте из 40 000 товаров: у нас есть фрукты и овощи, мясо и рыба, все для дома и товары для животных</div>
-              </div>
-            </div>
-          </section>
-          <section class="news-list">
-            <div class="flex-title">
-              <div class="section-title news-list__title">Новости Лайма</div><a class="flex-title__arrow" href="#">Все новости</a>
-            </div>
-            <div class="news-list__wrap"><a class="news-list__item" href="#">
-                <div class="news-list__item-left"><img class="news-list__item-img" src="./img/open.jpg" alt="chef" width="247" height="162" /></div>
-                <div class="news-list__item-right">
-                  <div class="news-list__item-title">Открытие нового магазина!</div>
-                  <div class="news-list__item-text">Выбирайте из 40 000 товаров: у нас есть фрукты и овощи, мясо и рыба, все для дома и товары для животных мясо и рыба, все для дома и товары для животных мясо и рыба, все для дома и товары для животных</div>
-                  <div class="news-list__item-link">Читать дальше</div>
-                </div>
-              </a><a class="news-list__item" href="#">
-                <div class="news-list__item-left"><img class="news-list__item-img" src="./img/contest.jpg" alt="reservation" width="247" height="162" /></div>
-                <div class="news-list__item-right">
-                  <div class="news-list__item-title">Конкурс рецептов Лайма</div>
-                  <div class="news-list__item-text">Выбирайте из 40 000 товаров: у нас есть фрукты и овощи, мясо и рыба, все для дома и товары для животных мясо и рыба, все для дома и товары для животных мясо и рыба, все для дома и товары для животных</div>
-                  <div class="news-list__item-link">Читать дальше</div>
-                </div>
-              </a><a class="news-list__item" href="#">
-                <div class="news-list__item-left"><img class="news-list__item-img" src="./img/45min.jpg" alt="reception-bell" width="247" height="162" /></div>
-                <div class="news-list__item-right">
-                  <div class="news-list__item-title">Доставка теперь за 45 минут!</div>
-                  <div class="news-list__item-text">Выбирайте из 40 000 товаров: у нас есть фрукты и овощи, мясо и рыба, все для дома и товары для животных мясо и рыба, все для дома и товары для животных мясо и рыба, все для дома и товары для животных</div>
-                  <div class="news-list__item-link">Читать дальше</div>
-                </div>
-              </a><a class="news-list__item" href="#">
-                <div class="news-list__item-left"><img class="news-list__item-img" src="./img/delivery.jpg" alt="recommended" width="247" height="162" /></div>
-                <div class="news-list__item-right">
-                  <div class="news-list__item-title">Теперь и в Деливери!</div>
-                  <div class="news-list__item-text">Выбирайте из 40 000 товаров: у нас есть фрукты и овощи, мясо и рыба, все для дома и товары для животных мясо и рыба, все для дома и товары для животных мясо и рыба, все для дома и товары для животных</div>
-                  <div class="news-list__item-link">Читать дальше</div>
-                </div>
-              </a></div>
-          </section>
-          <div class="page__products-list product-wrap">
-            <div class="flex-title">
-              <div class="section-title section-title_orange">Акционные продукты</div><a class="flex-title__arrow" href="#">Смотреть все</a>
-            </div>
-            <div class="product-list">
-              <div class="swiper">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <div class="product-list__item product-cart"><button class="product-cart__favorite"><svg>
-                          <use xlink:href="./img/favorite.svg#svg"></use>
-                        </svg></button><a class="product-cart__img" href="#"><img src="./img/example.jpg" alt="" />
-                        <div class="product-cart__badge">-26%</div>
-                      </a>
-                      <div class="product-cart__rating">
-                        <div class="rating-block">
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                        </div>
-                        <div class="rating-count">3 254</div>
-                      </div><a class="product-cart__title" href="#">Макаронные изделия Макфа Триколлини свитки</a>
-                      <div class="product-cart__wrap-price">
-                        <div class="price-main">120 руб.</div>
-                        <div class="price-old">140 руб.</div>
-                      </div><button class="product-cart__btn">В корзину</button>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="product-list__item product-cart"><button class="product-cart__favorite"><svg>
-                          <use xlink:href="./img/favorite.svg#svg"></use>
-                        </svg></button><a class="product-cart__img" href="#"><img src="./img/example.jpg" alt="" />
-                        <div class="product-cart__badge">-26%</div>
-                      </a>
-                      <div class="product-cart__rating">
-                        <div class="rating-block">
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                        </div>
-                        <div class="rating-count">3 254</div>
-                      </div><a class="product-cart__title" href="#">Макаронные изделия Макфа Триколлини свитки</a>
-                      <div class="product-cart__wrap-price">
-                        <div class="price-main">120 руб.</div>
-                        <div class="price-old">140 руб.</div>
-                      </div><button class="product-cart__btn">В корзину</button>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="product-list__item product-cart"><button class="product-cart__favorite"><svg>
-                          <use xlink:href="./img/favorite.svg#svg"></use>
-                        </svg></button><a class="product-cart__img" href="#"><img src="./img/example.jpg" alt="" />
-                        <div class="product-cart__badge">-26%</div>
-                      </a>
-                      <div class="product-cart__rating">
-                        <div class="rating-block">
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                        </div>
-                        <div class="rating-count">3 254</div>
-                      </div><a class="product-cart__title" href="#">Макаронные изделия Макфа Триколлини свитки</a>
-                      <div class="product-cart__wrap-price">
-                        <div class="price-main">120 руб.</div>
-                        <div class="price-old">140 руб.</div>
-                      </div><button class="product-cart__btn">В корзину</button>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="product-list__item product-cart"><button class="product-cart__favorite"><svg>
-                          <use xlink:href="./img/favorite.svg#svg"></use>
-                        </svg></button><a class="product-cart__img" href="#"><img src="./img/example.jpg" alt="" />
-                        <div class="product-cart__badge">-26%</div>
-                      </a>
-                      <div class="product-cart__rating">
-                        <div class="rating-block">
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                        </div>
-                        <div class="rating-count">3 254</div>
-                      </div><a class="product-cart__title" href="#">Макаронные изделия Макфа Триколлини свитки</a>
-                      <div class="product-cart__wrap-price">
-                        <div class="price-main">120 руб.</div>
-                        <div class="price-old">140 руб.</div>
-                      </div><button class="product-cart__btn">В корзину</button>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="product-list__item product-cart"><button class="product-cart__favorite"><svg>
-                          <use xlink:href="./img/favorite.svg#svg"></use>
-                        </svg></button><a class="product-cart__img" href="#"><img src="./img/example.jpg" alt="" />
-                        <div class="product-cart__badge">-26%</div>
-                      </a>
-                      <div class="product-cart__rating">
-                        <div class="rating-block">
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                        </div>
-                        <div class="rating-count">3 254</div>
-                      </div><a class="product-cart__title" href="#">Макаронные изделия Макфа Триколлини свитки</a>
-                      <div class="product-cart__wrap-price">
-                        <div class="price-main">120 руб.</div>
-                        <div class="price-old">140 руб.</div>
-                      </div><button class="product-cart__btn">В корзину</button>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="product-list__item product-cart"><button class="product-cart__favorite"><svg>
-                          <use xlink:href="./img/favorite.svg#svg"></use>
-                        </svg></button><a class="product-cart__img" href="#"><img src="./img/example.jpg" alt="" />
-                        <div class="product-cart__badge">-26%</div>
-                      </a>
-                      <div class="product-cart__rating">
-                        <div class="rating-block">
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                        </div>
-                        <div class="rating-count">3 254</div>
-                      </div><a class="product-cart__title" href="#">Макаронные изделия Макфа Триколлини свитки</a>
-                      <div class="product-cart__wrap-price">
-                        <div class="price-main">120 руб.</div>
-                        <div class="price-old">140 руб.</div>
-                      </div><button class="product-cart__btn">В корзину</button>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-scrollbar"></div>
-              </div>
-            </div>
-          </div>
-          <div class="page__products-list product-wrap">
-            <div class="flex-title">
-              <div class="section-title section-title_blue">Новинки</div><a class="flex-title__arrow" href="#">Смотреть все</a>
-            </div>
-            <div class="product-list">
-              <div class="swiper">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <div class="product-list__item product-cart"><button class="product-cart__favorite"><svg>
-                          <use xlink:href="./img/favorite.svg#svg"></use>
-                        </svg></button><a class="product-cart__img" href="#"><img src="./img/example.jpg" alt="" />
-                        <div class="product-cart__badge">-26%</div>
-                      </a>
-                      <div class="product-cart__rating">
-                        <div class="rating-block">
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                        </div>
-                        <div class="rating-count">3 254</div>
-                      </div><a class="product-cart__title" href="#">Макаронные изделия Макфа Триколлини свитки</a>
-                      <div class="product-cart__wrap-price">
-                        <div class="price-main">120 руб.</div>
-                        <div class="price-old">140 руб.</div>
-                      </div><button class="product-cart__btn">В корзину</button>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="product-list__item product-cart"><button class="product-cart__favorite"><svg>
-                          <use xlink:href="./img/favorite.svg#svg"></use>
-                        </svg></button><a class="product-cart__img" href="#"><img src="./img/example.jpg" alt="" />
-                        <div class="product-cart__badge">-26%</div>
-                      </a>
-                      <div class="product-cart__rating">
-                        <div class="rating-block">
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                        </div>
-                        <div class="rating-count">3 254</div>
-                      </div><a class="product-cart__title" href="#">Макаронные изделия Макфа Триколлини свитки</a>
-                      <div class="product-cart__wrap-price">
-                        <div class="price-main">120 руб.</div>
-                        <div class="price-old">140 руб.</div>
-                      </div><button class="product-cart__btn">В корзину</button>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="product-list__item product-cart"><button class="product-cart__favorite"><svg>
-                          <use xlink:href="./img/favorite.svg#svg"></use>
-                        </svg></button><a class="product-cart__img" href="#"><img src="./img/example.jpg" alt="" />
-                        <div class="product-cart__badge">-26%</div>
-                      </a>
-                      <div class="product-cart__rating">
-                        <div class="rating-block">
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                        </div>
-                        <div class="rating-count">3 254</div>
-                      </div><a class="product-cart__title" href="#">Макаронные изделия Макфа Триколлини свитки</a>
-                      <div class="product-cart__wrap-price">
-                        <div class="price-main">120 руб.</div>
-                        <div class="price-old">140 руб.</div>
-                      </div><button class="product-cart__btn">В корзину</button>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="product-list__item product-cart"><button class="product-cart__favorite"><svg>
-                          <use xlink:href="./img/favorite.svg#svg"></use>
-                        </svg></button><a class="product-cart__img" href="#"><img src="./img/example.jpg" alt="" />
-                        <div class="product-cart__badge">-26%</div>
-                      </a>
-                      <div class="product-cart__rating">
-                        <div class="rating-block">
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                        </div>
-                        <div class="rating-count">3 254</div>
-                      </div><a class="product-cart__title" href="#">Макаронные изделия Макфа Триколлини свитки</a>
-                      <div class="product-cart__wrap-price">
-                        <div class="price-main">120 руб.</div>
-                        <div class="price-old">140 руб.</div>
-                      </div><button class="product-cart__btn">В корзину</button>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="product-list__item product-cart"><button class="product-cart__favorite"><svg>
-                          <use xlink:href="./img/favorite.svg#svg"></use>
-                        </svg></button><a class="product-cart__img" href="#"><img src="./img/example.jpg" alt="" />
-                        <div class="product-cart__badge">-26%</div>
-                      </a>
-                      <div class="product-cart__rating">
-                        <div class="rating-block">
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                        </div>
-                        <div class="rating-count">3 254</div>
-                      </div><a class="product-cart__title" href="#">Макаронные изделия Макфа Триколлини свитки</a>
-                      <div class="product-cart__wrap-price">
-                        <div class="price-main">120 руб.</div>
-                        <div class="price-old">140 руб.</div>
-                      </div><button class="product-cart__btn">В корзину</button>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="product-list__item product-cart"><button class="product-cart__favorite"><svg>
-                          <use xlink:href="./img/favorite.svg#svg"></use>
-                        </svg></button><a class="product-cart__img" href="#"><img src="./img/example.jpg" alt="" />
-                        <div class="product-cart__badge">-26%</div>
-                      </a>
-                      <div class="product-cart__rating">
-                        <div class="rating-block">
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                        </div>
-                        <div class="rating-count">3 254</div>
-                      </div><a class="product-cart__title" href="#">Макаронные изделия Макфа Триколлини свитки</a>
-                      <div class="product-cart__wrap-price">
-                        <div class="price-main">120 руб.</div>
-                        <div class="price-old">140 руб.</div>
-                      </div><button class="product-cart__btn">В корзину</button>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-scrollbar"></div>
-              </div>
-            </div>
-          </div>
-          <div class="page__feedback-list">
-            <div class="feedback-list">
-              <div class="feedback-list__left">
-                <div class="feedback-list__title">Отзывы о лайме</div><button class="feedback-list__btn main-btn main-btn_big">Написать отзыв</button>
-              </div>
-              <div class="feedback-list__right">
-                <div class="feedback-cart feedback-list__item">
-                  <div class="feedback-cart__title"><img class="feedback-cart__title-img" src="./img/person.svg" alt="" width="11" height="14" />Александр Петров</div>
-                  <div class="feedback-cart__text">Спасибо! Все вовремя, качество хорошее, даже в в пробки привезли в указанный срок Спасибо! Все вовремя, качество хорошее, даже в в пробки привезли в указанный срок</div>
-                  <div class="feedback-cart__show-more js-feedback-show-more">еще</div>
-                </div>
-                <div class="feedback-cart feedback-list__item">
-                  <div class="feedback-cart__title"><img class="feedback-cart__title-img" src="./img/person.svg" alt="" width="11" height="14" />Александр Петров</div>
-                  <div class="feedback-cart__text">Спасибо! Все вовремя, качество хорошее, даже в в пробки привезли в указанный срок Спасибо! Все вовремя, качество хорошее, даже в в пробки привезли в указанный срок</div>
-                  <div class="feedback-cart__show-more js-feedback-show-more">еще</div>
-                </div>
-                <div class="feedback-cart feedback-list__item">
-                  <div class="feedback-cart__title"><img class="feedback-cart__title-img" src="./img/person.svg" alt="" width="11" height="14" />Александр Петров</div>
-                  <div class="feedback-cart__text">Спасибо! Все вовремя, качество хорошее, даже в в пробки привезли в указанный срок Спасибо! Все вовремя, качество хорошее, даже в в пробки привезли в указанный срок</div>
-                  <div class="feedback-cart__show-more js-feedback-show-more">еще</div>
-                </div>
-                <div class="feedback-cart feedback-list__item">
-                  <div class="feedback-cart__title"><img class="feedback-cart__title-img" src="./img/person.svg" alt="" width="11" height="14" />Александр Петров</div>
-                  <div class="feedback-cart__text">Спасибо! Все вовремя, качество хорошее, даже в в пробки привезли в указанный срок Спасибо! Все вовремя, качество хорошее, даже в в пробки привезли в указанный срок</div>
-                  <div class="feedback-cart__show-more js-feedback-show-more">еще</div>
-                </div>
-                <div class="feedback-cart feedback-list__item">
-                  <div class="feedback-cart__title"><img class="feedback-cart__title-img" src="./img/person.svg" alt="" width="11" height="14" />Александр Петров</div>
-                  <div class="feedback-cart__text">Спасибо! Все вовремя, качество хорошее, даже в в пробки привезли в указанный срок Спасибо! Все вовремя, качество хорошее, даже в в пробки привезли в указанный срок</div>
-                  <div class="feedback-cart__show-more js-feedback-show-more">еще</div>
-                </div>
-                <div class="feedback-cart feedback-list__item">
-                  <div class="feedback-cart__title"><img class="feedback-cart__title-img" src="./img/person.svg" alt="" width="11" height="14" />Александр Петров</div>
-                  <div class="feedback-cart__text">Спасибо! Все вовремя, качество хорошее, даже в в пробки привезли в указанный срок Спасибо! Все вовремя, качество хорошее, даже в в пробки привезли в указанный срок</div>
-                  <div class="feedback-cart__show-more js-feedback-show-more">еще</div>
-                </div>
-                <div class="feedback-list__more">Смотреть все отзывы</div>
-              </div><template class="js-feedback-wrap-slider">
-                <div class="swiper">
-                  <div class="swiper-wrapper"></div>
-                </div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-              </template>
-            </div>
-          </div>
-          <div class="page__products-list product-wrap">
-            <div class="flex-title">
-              <div class="section-title section-title_green">Выбор вегана</div><a class="flex-title__arrow" href="#">Смотреть все</a>
-            </div>
-            <div class="product-list">
-              <div class="swiper">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <div class="product-list__item product-cart"><button class="product-cart__favorite"><svg>
-                          <use xlink:href="./img/favorite.svg#svg"></use>
-                        </svg></button><a class="product-cart__img" href="#"><img src="./img/example.jpg" alt="" />
-                        <div class="product-cart__badge">-26%</div>
-                      </a>
-                      <div class="product-cart__rating">
-                        <div class="rating-block">
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                        </div>
-                        <div class="rating-count">3 254</div>
-                      </div><a class="product-cart__title" href="#">Макаронные изделия Макфа Триколлини свитки</a>
-                      <div class="product-cart__wrap-price">
-                        <div class="price-main">120 руб.</div>
-                        <div class="price-old">140 руб.</div>
-                      </div><button class="product-cart__btn">В корзину</button>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="product-list__item product-cart"><button class="product-cart__favorite"><svg>
-                          <use xlink:href="./img/favorite.svg#svg"></use>
-                        </svg></button><a class="product-cart__img" href="#"><img src="./img/example.jpg" alt="" />
-                        <div class="product-cart__badge">-26%</div>
-                      </a>
-                      <div class="product-cart__rating">
-                        <div class="rating-block">
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                        </div>
-                        <div class="rating-count">3 254</div>
-                      </div><a class="product-cart__title" href="#">Макаронные изделия Макфа Триколлини свитки</a>
-                      <div class="product-cart__wrap-price">
-                        <div class="price-main">120 руб.</div>
-                        <div class="price-old">140 руб.</div>
-                      </div><button class="product-cart__btn">В корзину</button>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="product-list__item product-cart"><button class="product-cart__favorite"><svg>
-                          <use xlink:href="./img/favorite.svg#svg"></use>
-                        </svg></button><a class="product-cart__img" href="#"><img src="./img/example.jpg" alt="" />
-                        <div class="product-cart__badge">-26%</div>
-                      </a>
-                      <div class="product-cart__rating">
-                        <div class="rating-block">
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                        </div>
-                        <div class="rating-count">3 254</div>
-                      </div><a class="product-cart__title" href="#">Макаронные изделия Макфа Триколлини свитки</a>
-                      <div class="product-cart__wrap-price">
-                        <div class="price-main">120 руб.</div>
-                        <div class="price-old">140 руб.</div>
-                      </div><button class="product-cart__btn">В корзину</button>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="product-list__item product-cart"><button class="product-cart__favorite"><svg>
-                          <use xlink:href="./img/favorite.svg#svg"></use>
-                        </svg></button><a class="product-cart__img" href="#"><img src="./img/example.jpg" alt="" />
-                        <div class="product-cart__badge">-26%</div>
-                      </a>
-                      <div class="product-cart__rating">
-                        <div class="rating-block">
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                        </div>
-                        <div class="rating-count">3 254</div>
-                      </div><a class="product-cart__title" href="#">Макаронные изделия Макфа Триколлини свитки</a>
-                      <div class="product-cart__wrap-price">
-                        <div class="price-main">120 руб.</div>
-                        <div class="price-old">140 руб.</div>
-                      </div><button class="product-cart__btn">В корзину</button>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="product-list__item product-cart"><button class="product-cart__favorite"><svg>
-                          <use xlink:href="./img/favorite.svg#svg"></use>
-                        </svg></button><a class="product-cart__img" href="#"><img src="./img/example.jpg" alt="" />
-                        <div class="product-cart__badge">-26%</div>
-                      </a>
-                      <div class="product-cart__rating">
-                        <div class="rating-block">
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                        </div>
-                        <div class="rating-count">3 254</div>
-                      </div><a class="product-cart__title" href="#">Макаронные изделия Макфа Триколлини свитки</a>
-                      <div class="product-cart__wrap-price">
-                        <div class="price-main">120 руб.</div>
-                        <div class="price-old">140 руб.</div>
-                      </div><button class="product-cart__btn">В корзину</button>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="product-list__item product-cart"><button class="product-cart__favorite"><svg>
-                          <use xlink:href="./img/favorite.svg#svg"></use>
-                        </svg></button><a class="product-cart__img" href="#"><img src="./img/example.jpg" alt="" />
-                        <div class="product-cart__badge">-26%</div>
-                      </a>
-                      <div class="product-cart__rating">
-                        <div class="rating-block">
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                        </div>
-                        <div class="rating-count">3 254</div>
-                      </div><a class="product-cart__title" href="#">Макаронные изделия Макфа Триколлини свитки</a>
-                      <div class="product-cart__wrap-price">
-                        <div class="price-main">120 руб.</div>
-                        <div class="price-old">140 руб.</div>
-                      </div><button class="product-cart__btn">В корзину</button>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-scrollbar"></div>
-              </div>
-            </div>
-          </div>
-          <div class="page__products-list product-wrap">
-            <div class="flex-title">
-              <div class="section-title section-title_red">Популярные товары</div><a class="flex-title__arrow" href="#">Смотреть все</a>
-            </div>
-            <div class="product-list">
-              <div class="swiper">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <div class="product-list__item product-cart"><button class="product-cart__favorite"><svg>
-                          <use xlink:href="./img/favorite.svg#svg"></use>
-                        </svg></button><a class="product-cart__img" href="#"><img src="./img/example.jpg" alt="" />
-                        <div class="product-cart__badge">-26%</div>
-                      </a>
-                      <div class="product-cart__rating">
-                        <div class="rating-block">
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                        </div>
-                        <div class="rating-count">3 254</div>
-                      </div><a class="product-cart__title" href="#">Макаронные изделия Макфа Триколлини свитки</a>
-                      <div class="product-cart__wrap-price">
-                        <div class="price-main">120 руб.</div>
-                        <div class="price-old">140 руб.</div>
-                      </div><button class="product-cart__btn">В корзину</button>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="product-list__item product-cart"><button class="product-cart__favorite"><svg>
-                          <use xlink:href="./img/favorite.svg#svg"></use>
-                        </svg></button><a class="product-cart__img" href="#"><img src="./img/example.jpg" alt="" />
-                        <div class="product-cart__badge">-26%</div>
-                      </a>
-                      <div class="product-cart__rating">
-                        <div class="rating-block">
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                        </div>
-                        <div class="rating-count">3 254</div>
-                      </div><a class="product-cart__title" href="#">Макаронные изделия Макфа Триколлини свитки</a>
-                      <div class="product-cart__wrap-price">
-                        <div class="price-main">120 руб.</div>
-                        <div class="price-old">140 руб.</div>
-                      </div><button class="product-cart__btn">В корзину</button>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="product-list__item product-cart"><button class="product-cart__favorite"><svg>
-                          <use xlink:href="./img/favorite.svg#svg"></use>
-                        </svg></button><a class="product-cart__img" href="#"><img src="./img/example.jpg" alt="" />
-                        <div class="product-cart__badge">-26%</div>
-                      </a>
-                      <div class="product-cart__rating">
-                        <div class="rating-block">
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                        </div>
-                        <div class="rating-count">3 254</div>
-                      </div><a class="product-cart__title" href="#">Макаронные изделия Макфа Триколлини свитки</a>
-                      <div class="product-cart__wrap-price">
-                        <div class="price-main">120 руб.</div>
-                        <div class="price-old">140 руб.</div>
-                      </div><button class="product-cart__btn">В корзину</button>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="product-list__item product-cart"><button class="product-cart__favorite"><svg>
-                          <use xlink:href="./img/favorite.svg#svg"></use>
-                        </svg></button><a class="product-cart__img" href="#"><img src="./img/example.jpg" alt="" />
-                        <div class="product-cart__badge">-26%</div>
-                      </a>
-                      <div class="product-cart__rating">
-                        <div class="rating-block">
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                        </div>
-                        <div class="rating-count">3 254</div>
-                      </div><a class="product-cart__title" href="#">Макаронные изделия Макфа Триколлини свитки</a>
-                      <div class="product-cart__wrap-price">
-                        <div class="price-main">120 руб.</div>
-                        <div class="price-old">140 руб.</div>
-                      </div><button class="product-cart__btn">В корзину</button>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="product-list__item product-cart"><button class="product-cart__favorite"><svg>
-                          <use xlink:href="./img/favorite.svg#svg"></use>
-                        </svg></button><a class="product-cart__img" href="#"><img src="./img/example.jpg" alt="" />
-                        <div class="product-cart__badge">-26%</div>
-                      </a>
-                      <div class="product-cart__rating">
-                        <div class="rating-block">
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                        </div>
-                        <div class="rating-count">3 254</div>
-                      </div><a class="product-cart__title" href="#">Макаронные изделия Макфа Триколлини свитки</a>
-                      <div class="product-cart__wrap-price">
-                        <div class="price-main">120 руб.</div>
-                        <div class="price-old">140 руб.</div>
-                      </div><button class="product-cart__btn">В корзину</button>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="product-list__item product-cart"><button class="product-cart__favorite"><svg>
-                          <use xlink:href="./img/favorite.svg#svg"></use>
-                        </svg></button><a class="product-cart__img" href="#"><img src="./img/example.jpg" alt="" />
-                        <div class="product-cart__badge">-26%</div>
-                      </a>
-                      <div class="product-cart__rating">
-                        <div class="rating-block">
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item rating-block__item_active"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                          <div class="rating-block__item"><svg>
-                              <use xlink:href="./img/star.svg#svg"></use>
-                            </svg></div>
-                        </div>
-                        <div class="rating-count">3 254</div>
-                      </div><a class="product-cart__title" href="#">Макаронные изделия Макфа Триколлини свитки</a>
-                      <div class="product-cart__wrap-price">
-                        <div class="price-main">120 руб.</div>
-                        <div class="price-old">140 руб.</div>
-                      </div><button class="product-cart__btn">В корзину</button>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-scrollbar"></div>
-              </div>
-            </div>
-          </div>
-          <div class="recipes">
-            <div class="recipes__left" style="background-image: url(&quot;./img/left-img.png&quot;);">
-              <div class="recipes__left-inner">
-                <div>
-                  <div class="recipes__left-title">Интервью с шеф-поваром</div>
-                  <div class="recipes__left-text">Рассказ из первых рук</div>
-                </div><a class="recipes__video" href="#"><img src="./img/play.svg" alt="" /></a>
-              </div>
-            </div>
-            <div class="recipes__right">
-              <div class="recipes__wrap-title flex-title">
-                <div class="recipes__title section-title section-title_green">Рецепты от шеф-лайма!</div>
-                <div class="flex-title__text">Соберите все необходимые продукты в один клик!</div>
-              </div>
-              <div class="swiper">
-                <div class="swiper-wrapper">
-                  <div class="recipes__slide swiper-slide">
-                    <div class="recipe-item">
-                      <div class="recipe-item__title">Курочка BARBEQUE</div>
-                      <div class="recipe-item__top"><img class="recipe-item__img" src="./img/chiken.png" alt="" width="14" height="14" />
-                        <div class="recipe-item__top-info">
-                          <div class="recipe-item__time"><img src="./img/clock.svg" alt="" />15 минут</div>
-                          <div class="recipe-item__count"><img src="./img/hot-soup-bowl.svg" alt="" width="14" height="14" />4 порции</div>
-                        </div>
-                      </div>
-                      <div class="recipe-item__bottom">
-                        <div class="recipe-item__ingredients">
-                          <div class="recipe-item__ingredient"><img src="/img/meat.png" alt="" />
-                            <div class="recipe-item__tooltip">
-                              <div class="recipe-item__tooltip-title">Маслины без косточки</div>
-                              <div class="recipe-item__tooltip-title">2,54 руб</div>
-                            </div>
-                          </div>
-                          <div class="recipe-item__ingredient"><img src="/img/berry.png" alt="" />
-                            <div class="recipe-item__tooltip">
-                              <div class="recipe-item__tooltip-title">Маслины без косточки</div>
-                              <div class="recipe-item__tooltip-title">2,54 руб</div>
-                            </div>
-                          </div>
-                          <div class="recipe-item__ingredient"><img src="/img/bread.png" alt="" />
-                            <div class="recipe-item__tooltip">
-                              <div class="recipe-item__tooltip-title">Маслины без косточки</div>
-                              <div class="recipe-item__tooltip-title">2,54 руб</div>
-                            </div>
-                          </div>
-                        </div><button class="recipe-item__btn main-btn">Купить ингредиенты</button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="recipes__slide swiper-slide">
-                    <div class="recipe-item">
-                      <div class="recipe-item__title">Курочка BARBEQUE</div>
-                      <div class="recipe-item__top"><img class="recipe-item__img" src="./img/soup.png" alt="" width="14" height="14" />
-                        <div class="recipe-item__top-info">
-                          <div class="recipe-item__time"><img src="./img/clock.svg" alt="" />16 минут</div>
-                          <div class="recipe-item__count"><img src="./img/hot-soup-bowl.svg" alt="" width="14" height="14" />5 порции</div>
-                        </div>
-                      </div>
-                      <div class="recipe-item__bottom">
-                        <div class="recipe-item__ingredients">
-                          <div class="recipe-item__ingredient"><img src="/img/meat.png" alt="" />
-                            <div class="recipe-item__tooltip">
-                              <div class="recipe-item__tooltip-title">Маслины без косточки</div>
-                              <div class="recipe-item__tooltip-title">2,54 руб</div>
-                            </div>
-                          </div>
-                          <div class="recipe-item__ingredient"><img src="/img/berry.png" alt="" />
-                            <div class="recipe-item__tooltip">
-                              <div class="recipe-item__tooltip-title">Маслины без косточки</div>
-                              <div class="recipe-item__tooltip-title">2,54 руб</div>
-                            </div>
-                          </div>
-                          <div class="recipe-item__ingredient"><img src="/img/bread.png" alt="" />
-                            <div class="recipe-item__tooltip">
-                              <div class="recipe-item__tooltip-title">Маслины без косточки</div>
-                              <div class="recipe-item__tooltip-title">2,54 руб</div>
-                            </div>
-                          </div>
-                        </div><button class="recipe-item__btn main-btn">Купить ингредиенты</button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="recipes__slide swiper-slide">
-                    <div class="recipe-item">
-                      <div class="recipe-item__title">Курочка BARBEQUE</div>
-                      <div class="recipe-item__top"><img class="recipe-item__img" src="./img/chiken.png" alt="" width="14" height="14" />
-                        <div class="recipe-item__top-info">
-                          <div class="recipe-item__time"><img src="./img/clock.svg" alt="" />15 минут</div>
-                          <div class="recipe-item__count"><img src="./img/hot-soup-bowl.svg" alt="" width="14" height="14" />2 порции</div>
-                        </div>
-                      </div>
-                      <div class="recipe-item__bottom">
-                        <div class="recipe-item__ingredients">
-                          <div class="recipe-item__ingredient"><img src="/img/meat.png" alt="" />
-                            <div class="recipe-item__tooltip">
-                              <div class="recipe-item__tooltip-title">Маслины без косточки</div>
-                              <div class="recipe-item__tooltip-title">2,54 руб</div>
-                            </div>
-                          </div>
-                          <div class="recipe-item__ingredient"><img src="/img/berry.png" alt="" />
-                            <div class="recipe-item__tooltip">
-                              <div class="recipe-item__tooltip-title">Маслины без косточки</div>
-                              <div class="recipe-item__tooltip-title">2,54 руб</div>
-                            </div>
-                          </div>
-                          <div class="recipe-item__ingredient"><img src="/img/bread.png" alt="" />
-                            <div class="recipe-item__tooltip">
-                              <div class="recipe-item__tooltip-title">Маслины без косточки</div>
-                              <div class="recipe-item__tooltip-title">2,54 руб</div>
-                            </div>
-                          </div>
-                        </div><button class="recipe-item__btn main-btn">Купить ингредиенты</button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="recipes__slide swiper-slide">
-                    <div class="recipe-item">
-                      <div class="recipe-item__title">Курочка BARBEQUE</div>
-                      <div class="recipe-item__top"><img class="recipe-item__img" src="./img/soup.png" alt="" width="14" height="14" />
-                        <div class="recipe-item__top-info">
-                          <div class="recipe-item__time"><img src="./img/clock.svg" alt="" />15 минут</div>
-                          <div class="recipe-item__count"><img src="./img/hot-soup-bowl.svg" alt="" width="14" height="14" />3 порции</div>
-                        </div>
-                      </div>
-                      <div class="recipe-item__bottom">
-                        <div class="recipe-item__ingredients">
-                          <div class="recipe-item__ingredient"><img src="/img/meat.png" alt="" />
-                            <div class="recipe-item__tooltip">
-                              <div class="recipe-item__tooltip-title">Маслины без косточки</div>
-                              <div class="recipe-item__tooltip-title">2,54 руб</div>
-                            </div>
-                          </div>
-                          <div class="recipe-item__ingredient"><img src="/img/berry.png" alt="" />
-                            <div class="recipe-item__tooltip">
-                              <div class="recipe-item__tooltip-title">Маслины без косточки</div>
-                              <div class="recipe-item__tooltip-title">2,54 руб</div>
-                            </div>
-                          </div>
-                          <div class="recipe-item__ingredient"><img src="/img/bread.png" alt="" />
-                            <div class="recipe-item__tooltip">
-                              <div class="recipe-item__tooltip-title">Маслины без косточки</div>
-                              <div class="recipe-item__tooltip-title">2,54 руб</div>
-                            </div>
-                          </div>
-                        </div><button class="recipe-item__btn main-btn">Купить ингредиенты</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-              </div>
-            </div>
-          </div>
-          <div class="become-better">
-            <div class="become-better__left-title"> ПОМОГИТЕ НАМ СТАТЬ ЛУЧШЕ</div>
-            <div class="become-better__title">Удобно ли вам совершать покупки через наш Онлайн-Каталог?</div>
-            <div class="become-better__right">
-              <div class="become-better__wrap-link"><a class="become-better__link" href="#">Да, легко найти товары</a><a class="become-better__link" href="#">В магазине удобнее</a><a class="become-better__link" href="#">Пользуюсь поиском на сайте</a></div>
-            </div>
-          </div>
+          <ul>
+            <li><a href="./main-page.html">Главная</a></li>
+            <li><a href="./basket.html">Корзина</a></li>
+          </ul>
         </div>
         <div class="container__sidebar">
           <div class="sidebar">
             <div class="sidebar__top">
-              <div class="sidebar__login">Здравствуйте,<span class="sidebar__login-name">Михаил!</span></div>
-              <div class="sidebar__void"><img class="sidebar__void-img" src="./img/void-img.svg" alt="" />
+              <div class="sidebar__void">
+                <div class="sidebar__login">Здравствуйте,<span class="sidebar__login-name">Михаил!</span></div><img class="sidebar__void-img" src="./img/void-img.svg" alt="" />
                 <div class="sidebar__void-title">Ваша корзина пуста</div><a class="sidebar__void-btn main-btn" href="#">Перейти в каталог</a>
-                <div class="sidebar__void-text">Выбирайте из более чем 1000 свежих товаров!</div>
-                <div class="sidebar__void-link">Повторить прошлый заказ</div>
+                <div class="sidebar__void-text">Выбирайте из более чем 1000 свежих товаров!</div><a class="sidebar__void-link" href="#">Повторить прошлый заказ</a>
                 <div class="sidebar__void-text">Вы можете быстро добавить в корзину ваши предыдущие покупки</div>
               </div>
-              <div class="sidebar__title">Бакалея</div>
-              <div class="basket-list">
-                <div class="basket-list__item">
-                  <div class="basket-item"><img src="./img/product.png" alt="" width="29" height="50" />
-                    <div class="basket-item__grid">
-                      <div class="basket-item__count-wrap"><button class="basket-item__btn js-basket-list-btn-add">+</button>
-                        <div class="basket-item__count">2</div><button class="basket-item__btn js-basket-list-btn-remove">-</button>
+              <div class="sidebar__exist">
+                <div class="sidebar__title">Бакалея</div>
+                <div class="basket-list"></div><template class="js-template-basket-product">
+                  <div class="basket-list__item">
+                    <div class="basket-item"><img class="basket-item__img" src="" alt="" width="29" height="50" />
+                      <div class="basket-item__grid">
+                        <div class="basket-item__count-wrap basket-count-wrap"><button class="basket-item__btn basket-count-wrap__btn js-basket-list-btn-add">+</button>
+                          <div class="basket-item__count basket-count-wrap__count">2</div><button class="basket-item__btn basket-count-wrap__btn js-basket-list-btn-remove">-</button>
+                        </div>
+                        <div class="basket-item__col">
+                          <div class="basket-item__name"></div>
+                          <div class="basket-item__bottom">
+                            <div class="basket-item__price"></div>
+                            <div class="basket-item__weight"></div>
+                          </div>
+                        </div>
                       </div>
+                      <div class="basket-item__close"></div>
+                    </div>
+                  </div>
+                </template>
+                <div class="sidebar__title">Вы обычно покупаете:</div>
+                <div class="sidebar__scroll-list">
+                  <div class="sidebar__scroll-item basket-item"><img src="./img/product.png" alt="" width="29" height="50" />
+                    <div class="basket-item__grid">
                       <div class="basket-item__col">
                         <div class="basket-item__name">Макаронные изделия Макфа триколлини...</div>
                         <div class="basket-item__bottom">
@@ -1365,15 +389,9 @@ window.addEventListener('resize', () => {
                         </div>
                       </div>
                     </div>
-                    <div class="basket-item__close js-basket-item-close"></div>
                   </div>
-                </div>
-                <div class="basket-list__item">
-                  <div class="basket-item"><img src="./img/product.png" alt="" width="29" height="50" />
+                  <div class="sidebar__scroll-item basket-item"><img src="./img/product.png" alt="" width="29" height="50" />
                     <div class="basket-item__grid">
-                      <div class="basket-item__count-wrap"><button class="basket-item__btn js-basket-list-btn-add">+</button>
-                        <div class="basket-item__count">2</div><button class="basket-item__btn js-basket-list-btn-remove">-</button>
-                      </div>
                       <div class="basket-item__col">
                         <div class="basket-item__name">Макаронные изделия Макфа триколлини...</div>
                         <div class="basket-item__bottom">
@@ -1382,15 +400,9 @@ window.addEventListener('resize', () => {
                         </div>
                       </div>
                     </div>
-                    <div class="basket-item__close js-basket-item-close"></div>
                   </div>
-                </div>
-                <div class="basket-list__item">
-                  <div class="basket-item"><img src="./img/product.png" alt="" width="29" height="50" />
+                  <div class="sidebar__scroll-item basket-item"><img src="./img/product.png" alt="" width="29" height="50" />
                     <div class="basket-item__grid">
-                      <div class="basket-item__count-wrap"><button class="basket-item__btn js-basket-list-btn-add">+</button>
-                        <div class="basket-item__count">2</div><button class="basket-item__btn js-basket-list-btn-remove">-</button>
-                      </div>
                       <div class="basket-item__col">
                         <div class="basket-item__name">Макаронные изделия Макфа триколлини...</div>
                         <div class="basket-item__bottom">
@@ -1399,48 +411,11 @@ window.addEventListener('resize', () => {
                         </div>
                       </div>
                     </div>
-                    <div class="basket-item__close js-basket-item-close"></div>
                   </div>
                 </div>
+                <div class="sidebar__title">Вы обычно покупаете:</div>
+                <div class="sidebar__bottom-text">Если товара не будет в наличии, его заменят на идентичный по свойствам и стоимости (с отклонением не более 50% в меньшую сторону).</div>
               </div>
-              <div class="sidebar__title">Другие товары</div>
-              <div class="sidebar__scroll-list">
-                <div class="sidebar__scroll-item basket-item"><img src="./img/product.png" alt="" width="29" height="50" />
-                  <div class="basket-item__grid">
-                    <div class="basket-item__col">
-                      <div class="basket-item__name">Макаронные изделия Макфа триколлини...</div>
-                      <div class="basket-item__bottom">
-                        <div class="basket-item__price">120 руб.</div>
-                        <div class="basket-item__weight">450г.</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="sidebar__scroll-item basket-item"><img src="./img/product.png" alt="" width="29" height="50" />
-                  <div class="basket-item__grid">
-                    <div class="basket-item__col">
-                      <div class="basket-item__name">Макаронные изделия Макфа триколлини...</div>
-                      <div class="basket-item__bottom">
-                        <div class="basket-item__price">120 руб.</div>
-                        <div class="basket-item__weight">450г.</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="sidebar__scroll-item basket-item"><img src="./img/product.png" alt="" width="29" height="50" />
-                  <div class="basket-item__grid">
-                    <div class="basket-item__col">
-                      <div class="basket-item__name">Макаронные изделия Макфа триколлини...</div>
-                      <div class="basket-item__bottom">
-                        <div class="basket-item__price">120 руб.</div>
-                        <div class="basket-item__weight">450г.</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="sidebar__title">Вы обычно покупаете:</div>
-              <div class="sidebar__bottom-text">Если товара не будет в наличии, его заменят на идентичный по свойствам и стоимости (с отклонением не более 50% в меньшую сторону).</div>
             </div>
             <div class="sidebar__bottom">
               <div class="sidebar__bottom-flex">
@@ -1495,9 +470,7 @@ window.addEventListener('resize', () => {
         </div>
       </div>
     </div>
-  </div><script src="js/bundle.js">
-  </script>
-
+  </div><script src="js/bundle.js"></script>
 </body>
 
 </html>

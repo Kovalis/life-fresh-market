@@ -1,0 +1,28 @@
+.calculate-in-basket {
+  background-color: $grey;
+  border-radius: 5px;
+  padding: 13px 26px;
+
+  &__title {
+    @include font-size(700, 14px, 1.2);
+    color: $dark-text;
+
+    margin-bottom: 18px;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+
+  &__item {
+    @include font-size(400, 14px, 1.2);
+    color: $dark-text;
+  }
+
+  &__item-name {
+    color: $composition-text;
+    margin-bottom: 0.5rem;
+  }
+}

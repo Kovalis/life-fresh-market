@@ -1,0 +1,70 @@
+mixin sidebar-basket-form
+    .sidebar-basket-form
+        .basket-form-item
+            .basket-form-item__title Контактные данные
+            .basket-form-item__col-2
+                .input-item
+                    .input-item__placeholder Ваше имя
+                    input.input-item__input(type="text")
+                .input-item
+                    .input-item__placeholder Номер телефона
+                    input.input-item__input(type="tel")
+            .input-item
+                .input-item__placeholder Ваш e-mail
+                input.input-item__input(type="text")
+        .basket-form-item
+            .basket-form-item__title Адрес доставки            
+            .input-item
+                .input-item__placeholder ул.Пимена-панчанки, д. 12, под. 4, кв. 312
+                input.input-item__input(type="text")
+            .input-item
+                .input-item__placeholder Начните вводить новый адрес
+                input.input-item__input(type="text")
+            .basket-form-item__col-3 
+                .input-item
+                    .input-item__placeholder Подъезд
+                    input.input-item__input(type="text")
+                .input-item
+                    .input-item__placeholder 12
+                    input.input-item__input(type="number")
+                .input-item
+                    .input-item__placeholder Квартира
+                    input.input-item__input(type="text")
+            .input-item
+                .input-item__placeholder Выберите дату доставки
+                input.input-item__input.js-input-date(type="text")
+        .basket-form-item
+            .basket-form-item__title Оплата заказа
+            .basket-form-item__grid-card
+                .input-item
+                    
+                    input(type="radio", id="pay", name="paycard", checked="checked")
+                    label.input-item__label-card(for="pay") Картой онлайн
+                .input-item
+                    .input-item__placeholder 
+                    input(type="radio", id="pay2", name="paycard")
+                    label.input-item__label-card(for="pay2") Картой курьеру
+                .input-item
+                    .input-item__placeholder 
+                    input(type="radio", id="pay3", name="paycard")
+                    label.input-item__label-card(for="pay3") Наличными курьеру
+                .input-item
+                    .input-item__placeholder 
+                    input(type="radio", id="pay4", name="paycard")
+                    label.input-item__label-card(for="pay4") Сертификатом
+            .input-item
+                .input-item__placeholder Комментарий к заказу
+                input.input-item__input(type="text")
+        .calculate-in-basket
+            .calculate-in-basket__title Калькулятор БЖУ в корзине
+            .calculate-in-basket__list
+                .calculate-in-basket__item
+                    .calculate-in-basket__item-name Белки
+                    .calculate-in-basket__item-count 550.5 г
+                .calculate-in-basket__item
+                    .calculate-in-basket__item-name Жиры
+                    .calculate-in-basket__item-count 2000 г
+                .calculate-in-basket__item
+                    .calculate-in-basket__item-name Углеводы
+                    .calculate-in-basket__item-count 900.9 г
+        +sidebar-basket-total

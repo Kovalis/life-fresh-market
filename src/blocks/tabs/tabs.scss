@@ -3,8 +3,7 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .tabs {
-
-  $block-name:                &; // #{$block-name}__element
+  $block-name: &; // #{$block-name}__element
 
   margin-top: $typo-margin-vertical;
   margin-bottom: $typo-margin-vertical;
@@ -18,13 +17,13 @@
     list-style: none;
 
     &:after {
-      content: '';
+      content: "";
       display: none;
       flex-grow: 1;
       height: 1px;
       background-color: $border-color;
 
-      @media (min-width: $screen-md) {
+      @media (min-width: $screen-ti) {
         display: block;
       }
     }
@@ -40,7 +39,7 @@
     border: 1px solid $border-color;
     color: $text-color-muted;
 
-    @media (min-width: $screen-md) {
+    @media (min-width: $screen-ti) {
       margin: 0;
 
       &:not(:last-child) {
@@ -51,7 +50,7 @@
     &--active {
       color: $text-color;
 
-      @media (min-width: $screen-md) {
+      @media (min-width: $screen-ti) {
         border-bottom: 1px solid transparent;
       }
 
@@ -79,23 +78,22 @@
     border: 1px solid $border-color;
     padding: $field-padding-vertical $field-padding-horizontal;
 
-    @media (min-width: $screen-md) {
+    @media (min-width: $screen-ti) {
       border-top: none;
     }
   }
 
   &__content-item {
-
     .js & {
       display: none;
     }
 
-    & > *:last-child { // stylelint-disable-line  selector-combinator-blacklist
+    & > *:last-child {
+      // stylelint-disable-line  selector-combinator-blacklist
       margin-bottom: 0;
     }
 
     &--active {
-
       .js & {
         display: block;
       }

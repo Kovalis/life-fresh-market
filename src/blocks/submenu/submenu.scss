@@ -1,0 +1,63 @@
+.submenu {
+  display: none;
+
+  position: absolute;
+  right: 0;
+  top: -30px;
+  bottom: 0;
+  z-index: 1;
+
+  transform: translateX(100%);
+
+  background-color: $grey;
+  width: calc(100% - 50px);
+  padding-top: 30px;
+  padding-left: 25px;
+
+  transition: 0.5s transform;
+
+  @media screen and (min-width: $screen-t) {
+    width: 338px;
+    padding-left: 41px;
+    padding-top: 45px;
+    padding-right: 50px;
+
+    left: 100%;
+    top: 0;
+    right: auto;
+  }
+
+  &_active {
+    display: block;
+    transform: translateX(0);
+  }
+
+  &__title {
+    @include font-size(400, 14px, 1.2);
+    color: $dark-text;
+
+    display: block;
+    position: relative;
+    padding-bottom: 7px;
+    margin-bottom: 20px;
+
+    border-bottom: 1px solid rgba($dark-text, 0.1);
+  }
+
+  &__li {
+    display: block;
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__link {
+    @include font-size(600, 14px, 1.2);
+    color: $dark-text;
+    text-decoration: none;
+
+    display: block;
+    position: relative;
+  }
+}

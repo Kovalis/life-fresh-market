@@ -6,13 +6,13 @@
   margin-top: $typo-margin-vertical;
   margin-bottom: $typo-margin-vertical;
 
-  @media (min-width: $screen-md) {
-
+  @media (min-width: $screen-ti) {
     & & {
       padding-left: calc(60px + 1em);
     }
 
-    & & & & { // stylelint-disable-line  selector-max-compound-selectors, selector-max-class, selector-max-combinators
+    & & & & {
+      // stylelint-disable-line  selector-max-compound-selectors, selector-max-class, selector-max-combinators
       padding-left: 0;
     }
   }
@@ -41,14 +41,16 @@
     }
   }
 
-  &__header {}
+  &__header {
+  }
 
   &__body {
-
-    & > *:last-child { // stylelint-disable-line  selector-combinator-blacklist
+    & > *:last-child {
+      // stylelint-disable-line  selector-combinator-blacklist
       margin-bottom: 0;
     }
   }
 
-  &__footer {}
+  &__footer {
+  }
 }

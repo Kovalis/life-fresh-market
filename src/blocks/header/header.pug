@@ -59,10 +59,10 @@ mixin header(mods)
         .container
           .header__bottom-inner
             .header__bottom-inner-left
-              button.header__btn-catalog.main-btn.main-btn_big
+              button.header__btn-catalog.main-btn.main-btn_big.js-burger-menu
                 img(src='./img/search-btn.svg', alt='catalog',width='22', height='17' )
                 | Каталог
-              .burger-menu
+              .burger-menu.js-burger-menu
                 .burger-menu__item 
                 .burger-menu__item 
                 .burger-menu__item 
@@ -81,7 +81,7 @@ mixin header(mods)
                 svg
                   use(xlink:href='./img/hearth.svg#svg')
                 | Избранное
-              a.header__bottom-nav-item(href='#')
+              a.header__bottom-nav-item.header__bottom-nav-item_active(href='#')
                 svg
                   use(xlink:href='./img/cart.svg#svg')
                 | Корзина

@@ -1,7 +1,7 @@
 import ready from "../../js/utils/documentReady";
 
 ready(function () {
-  const BURGER_BTN = "burger-menu";
+  const BURGER_BTN = "js-burger-menu";
   const MOBILE_MENU = "mobile-menu";
   const burger = document.querySelector(`.${BURGER_BTN}`);
   //WIDTH_INIT = 1200;
@@ -25,18 +25,16 @@ ready(function () {
           event.preventDefault();
           const innerMenu = element
             .closest(".mobile-menu__li")
-            .querySelector(".mobile-menu__submenu");
-          const innerSubMenu = document.querySelectorAll(
-            ".mobile-menu__submenu"
-          );
+            .querySelector(".submenu");
+          const innerSubMenu = document.querySelectorAll(".submenu");
           innerSubMenu.forEach(function (elementMenu) {
             if (
-              !elementMenu.classList.contains("mobile-menu__submenu_active") &&
+              !elementMenu.classList.contains("submenu_active") &&
               innerMenu == elementMenu
             ) {
-              elementMenu.classList.add("mobile-menu__submenu_active");
+              elementMenu.classList.add("submenu_active");
             } else {
-              elementMenu.classList.remove("mobile-menu__submenu_active");
+              elementMenu.classList.remove("submenu_active");
             }
           });
         },

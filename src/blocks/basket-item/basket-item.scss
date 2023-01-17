@@ -50,8 +50,8 @@
   }
 
   &__count-wrap {
-    @include flex-center;
     flex-direction: column;
+    justify-content: center;
 
     min-width: 30px;
   }
@@ -64,11 +64,6 @@
   &__btn {
     @include font-size(400, 12px, 1.2);
     color: rgba($dark-text, 0.3);
-    cursor: pointer;
-
-    outline: none;
-    background-color: transparent;
-    border: none;
   }
 
   &__close {

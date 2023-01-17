@@ -41,7 +41,7 @@
     flex-grow: 1;
     overflow: hidden;
 
-    @media screen and (min-width: $screen-xl) {
+    @media screen and (min-width: $screen-d) {
       overflow: unset;
     }
   }
@@ -186,7 +186,7 @@ a {
 
   &[href^="tel:"] {
     // На больших экранах телефоны-ссылки делаем обычным текстом
-    @media (min-width: $screen-xl) {
+    @media (min-width: $screen-d) {
       white-space: nowrap;
       pointer-events: none;
       text-decoration: inherit;

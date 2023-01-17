@@ -1,0 +1,18 @@
+extends ../pug/layout-basket.pug
+
+block meta
+  title Корзина
+  meta(name='description', content='')
+block content
+    .container__main
+      h1 Оформление заказа
+      .basket-page-list
+        +basket-page-item
+        +basket-page-item
+        +basket-page-item
+        +basket-page-item
+        +basket-page-item
+        +basket-page-item
+      .page__products-list.product-wrap
+        +flex-title('Рекомендуем','Смотреть все', 'section-title_red')
+        +product-list-recommend

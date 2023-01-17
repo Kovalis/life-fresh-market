@@ -1,0 +1,32 @@
+mixin basket-page-item
+    .basket-page-item
+        a.basket-page-item__img(href="#") 
+            img(src="./img/example.png", alt="", width="103", height="103")
+            .basket-page-item__badge-img.badge.badge_big -26%
+        a.basket-page-item__title(href="#")
+            | Макаронные изделия Макфа Триколлини свитки
+        .composition-list 
+            .composition-list__item
+                .composition-list__item-text Б
+                | 2.5 г
+            .composition-list__item
+                .composition-list__item-text Ж
+                | 20 г
+            .composition-list__item
+                .composition-list__item-text У
+                | 2.9 г
+        .basket-count-wrap
+            button.basket-page-item__btn.basket-count-wrap__btn.js-basket-page-item-remove -
+            .basket-count-wrap__count 1
+            button.basket-page-item__btn.basket-count-wrap__btn.js-basket-page-item-add +
+        div 
+            .basket-page-item__wrap-price
+                .price-old 120 руб.
+                .price-main.price-main_basket 120 руб.
+                .basket-page-item__badge-price.badge -26%
+        .basket-page-item__right
+            button.favorite-btn
+                svg
+                    use(xlink:href='./img/favorite.svg#svg')
+            button.basket-page-item__delete
+                img(src="./img/close.svg", alt="", width="11", height="11")

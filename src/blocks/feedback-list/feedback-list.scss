@@ -12,7 +12,7 @@
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 
-  @media screen and (min-width: $screen-md) {
+  @media screen and (min-width: $screen-ti) {
     flex-direction: row;
     gap: 40px;
     padding: 10px 0;
@@ -28,11 +28,7 @@
 
       width: 100px;
 
-      background: linear-gradient(
-        270deg,
-        #ffffff 27.68%,
-        rgba(255, 255, 255, 0) 100%
-      );
+      background: linear-gradient(270deg, #ffffff 27.68%, rgba(255, 255, 255, 0) 100%);
     }
   }
 
@@ -40,7 +36,7 @@
     &:not(:last-child) {
       margin-bottom: 20px;
 
-      @media screen and (min-width: $screen-md) {
+      @media screen and (min-width: $screen-ti) {
         margin-bottom: 0;
       }
     }
@@ -52,7 +48,7 @@
 
     flex-shrink: 0;
 
-    @media screen and (min-width: $screen-md) {
+    @media screen and (min-width: $screen-ti) {
       width: 174px;
       display: block;
       margin-left: 26px;
@@ -69,11 +65,7 @@
     &:before {
       content: "";
       display: block;
-      background: linear-gradient(
-        0deg,
-        #f8f8f8 49.46%,
-        rgba(248, 248, 248, 0) 100%
-      );
+      background: linear-gradient(0deg, #f8f8f8 49.46%, rgba(248, 248, 248, 0) 100%);
       position: absolute;
       left: 0;
       right: 0;
@@ -82,7 +74,7 @@
       z-index: 2;
     }
 
-    @media screen and (min-width: $screen-md) {
+    @media screen and (min-width: $screen-ti) {
       width: calc(100% - 240px);
       max-height: auto;
       padding-bottom: 0;
@@ -96,7 +88,7 @@
     flex-shrink: 0;
     width: 80px;
 
-    @media screen and (min-width: $screen-md) {
+    @media screen and (min-width: $screen-ti) {
       width: auto;
       margin-bottom: 15px;
     }
@@ -106,7 +98,7 @@
     justify-content: center;
     flex-grow: 1;
 
-    @media screen and (min-width: $screen-md) {
+    @media screen and (min-width: $screen-ti) {
       width: 100%;
     }
   }
@@ -124,7 +116,7 @@
     bottom: 11px;
     z-index: 3;
 
-    @media screen and (min-width: $screen-sm) {
+    @media screen and (min-width: $screen-t) {
       display: none;
     }
   }

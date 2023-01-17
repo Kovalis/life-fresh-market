@@ -41,11 +41,8 @@
 @import "../card/card.scss";
 @import "../../scss/print.scss";
 
-
-
 .blocks-library {
-
-  $block-name:                &; // #{$block-name}__element
+  $block-name: &; // #{$block-name}__element
 
   &__title {
     font-weight: 400;
@@ -57,12 +54,12 @@
     border: 2px dashed $gray-lighter;
     margin: 2.5rem 0;
 
-    @media (min-width: $screen-md) {
+    @media (min-width: $screen-ti) {
       padding: 1.5rem 2rem 0.5rem 3rem;
     }
 
     &:before {
-      content: '.' attr(data-id);
+      content: "." attr(data-id);
       position: absolute;
       top: -1.2rem;
       left: 0;
@@ -75,7 +72,7 @@
       white-space: nowrap;
       color: $gray-lighter;
 
-      @media (min-width: $screen-md) {
+      @media (min-width: $screen-ti) {
         left: 1.4rem;
         top: 20.5rem;
         width: 21rem;
@@ -110,7 +107,7 @@
     cursor: pointer;
     margin-bottom: 0.3em;
 
-    @media (min-width: $screen-md) {
+    @media (min-width: $screen-ti) {
       position: absolute;
       top: -1.65rem;
       left: -2.5rem;
@@ -130,7 +127,7 @@
       width: 30px;
       height: 3px;
       left: 0;
-      content: '';
+      content: "";
     }
 
     &:before {

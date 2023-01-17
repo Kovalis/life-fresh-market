@@ -1,0 +1,31 @@
+mixin product-cart-recommend
+    .product-list__item.product-cart(data-weight="450г")
+        button.product-cart__favorite.favorite-btn
+            svg
+                use(xlink:href='./img/favorite.svg#svg')
+        a(href='#').product-cart__img
+            img(src='./img/example.jpg', alt='')
+            .product-cart__badge -26%
+        .product-cart__rating
+            .rating-block
+                .rating-block__item.rating-block__item_active
+                    svg
+                        use(xlink:href='./img/star.svg#svg')
+                .rating-block__item.rating-block__item_active
+                    svg
+                        use(xlink:href='./img/star.svg#svg')
+                .rating-block__item.rating-block__item_active
+                    svg
+                        use(xlink:href='./img/star.svg#svg')
+                .rating-block__item.rating-block__item_active
+                    svg
+                        use(xlink:href='./img/star.svg#svg')
+                .rating-block__item
+                    svg
+                        use(xlink:href='./img/star.svg#svg')
+            .rating-count 3 254
+        a(href='#').product-cart__title Макаронные изделия Макфа Триколлини свитки
+        .product-cart__wrap-price
+            .price-main 120 руб.
+            .price-old 140 руб.
+        button.product-cart__btn.js-add-in-basket-recommend В корзину

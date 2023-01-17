@@ -1,0 +1,29 @@
+.basket-form-item {
+  background-color: $white;
+  padding: 23px 24px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+
+  &__title {
+    @include font-size(700, 14px, 1.2);
+    margin-bottom: 32px;
+  }
+
+  &__col-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  &__col-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+
+  &__grid-card {
+    display: grid;
+    grid-column-gap: 20px;
+    grid-template-columns: 1fr 1fr;
+  }
+}

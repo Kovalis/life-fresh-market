@@ -5,7 +5,7 @@
 
   transition: 0.3s background-color, 0.3s box-shadow;
 
-  @media screen and (min-width: $screen-md) {
+  @media screen and (min-width: $screen-ti) {
     padding: 10px 8px;
 
     &:hover,
@@ -43,7 +43,7 @@
 
     margin-bottom: 4px;
 
-    @media screen and (min-width: $screen-md) {
+    @media screen and (min-width: $screen-ti) {
       @include font-size(500, 12px, 1.2);
     }
   }
@@ -52,39 +52,18 @@
     position: absolute;
     left: 11px;
     top: 9px;
-
-    border: none;
-    background-color: transparent;
-    padding: 0;
+    z-index: 2;
 
     width: 20px;
     height: 20px;
-
-    cursor: pointer;
-    svg {
-      * {
-        color: rgba($svg-grey, 0.3);
-        transition: 0.3s color;
-      }
-    }
-
-    &:hover,
-    &:focus,
-    &_active {
-      svg {
-        * {
-          color: $accent-color;
-        }
-      }
-    }
   }
 
   &__wrap-price {
     @include flex-center;
-
+    gap: 8px;
     margin-bottom: 8px;
 
-    @media screen and (min-width: $screen-md) {
+    @media screen and (min-width: $screen-ti) {
       margin-bottom: 10px;
     }
   }
@@ -133,19 +112,24 @@
 
       transition: 0.5s width;
 
-      @media screen and (min-width: $screen-md) {
+      @media screen and (min-width: $screen-ti) {
         width: 34px;
       }
     }
 
     &:hover,
-    &:focus {
+    &:focus,
+    &_disable {
       &:after {
         width: 100%;
       }
     }
 
-    @media screen and (min-width: $screen-md) {
+    &_disable {
+      pointer-events: none;
+    }
+
+    @media screen and (min-width: $screen-ti) {
       @include font-size(700, 12px, 1.2);
 
       height: 34px;

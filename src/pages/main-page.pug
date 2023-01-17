@@ -1,0 +1,26 @@
+extends ../pug/layout.pug
+
+block meta
+  title Главная
+  meta(name='description', content='')
+block content
+    .container__main
+      +main-slider
+      +advantage-block
+      +news-list
+      .page__products-list.product-wrap
+        +flex-title('Акционные продукты','Смотреть все', 'section-title_orange')
+        +product-list
+      .page__products-list.product-wrap
+        +flex-title('Новинки','Смотреть все', 'section-title_blue')
+        +product-list
+      .page__feedback-list
+        +feedback-list
+      .page__products-list.product-wrap
+        +flex-title('Выбор вегана','Смотреть все', 'section-title_green')
+        +product-list
+      .page__products-list.product-wrap
+        +flex-title('Популярные товары','Смотреть все', 'section-title_red')
+        +product-list
+      +recipes
+      +become-better

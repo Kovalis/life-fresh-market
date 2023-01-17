@@ -1,40 +1,36 @@
-/* global exports process console __dirname Buffer */
+/* global exports process __dirname Buffer require */
 /* eslint-disable no-console */
 'use strict';
 
 // Пакеты, использующиеся при обработке
 const { series, parallel, src, dest, watch, lastRun } = require('gulp');
-const fs = require('fs');
-const plumber = require('gulp-plumber');
-const del = require('del');
-const pug = require('gulp-pug');
-const through2 = require('through2');
-const rename = require('gulp-rename');
-const getClassesFromHtml = require('get-classes-from-html');
-const browserSync = require('browser-sync').create();
-const debug = require('gulp-debug');
-const sass = require('gulp-sass');
-const webpackStream = require('webpack-stream');
-const buffer = require('vinyl-buffer');
-const postcss = require('gulp-postcss');
-const autoprefixer = require("autoprefixer");
-const mqpacker = require("css-mqpacker");
 const atImport = require("postcss-import");
-const csso = require('gulp-csso');
-const inlineSVG = require('postcss-inline-svg');
+const autoprefixer = require("autoprefixer");
+const browserSync = require('browser-sync').create();
+const cheerio = require("gulp-cheerio");
 const cpy = require('cpy');
-const svgstore = require('gulp-svgstore');
-const svgmin = require('gulp-svgmin');
-const spritesmith = require('gulp.spritesmith');
-const merge = require('merge-stream');
-const imagemin = require('gulp-imagemin');
+const csso = require('gulp-csso');
+const debug = require('gulp-debug');
+const del = require('del');
+const fs = require('fs');
+const getClassesFromHtml = require('get-classes-from-html');
+const ghPages = require('gh-pages');
+const jsonConcat = require("gulp-json-concat");
+const mqPacker = require("css-mqpacker");
+const path = require("path");
+const plumber = require('gulp-plumber');
+const postcss = require('gulp-postcss');
 const prettyHtml = require('gulp-pretty-html');
-const replace = require('gulp-replace');
-const ghpages = require('gh-pages');
-const path = require('path');
+const pug = require('gulp-pug');
+const rename = require('gulp-rename');
+const sass = require('gulp-sass')(require('sass'));
+const svgMin = require('gulp-svgmin');
+const svgStore = require('gulp-svgstore');
+const through2 = require('through2');
+const uglify = require('gulp-uglify-es').default;
+const webpackStream = require('webpack-stream');
 
 // Глобальные настройки этого запуска
-const buildLibrary = process.env.BUILD_LIBRARY || false;
 const mode = process.env.MODE || 'development';
 const nth = {};
 nth.config = require('./config.js');
@@ -44,12 +40,6 @@ const dir = nth.config.dir;
 
 // Сообщение для компилируемых файлов
 let doNotEditMsg = '\n ВНИМАНИЕ! Этот файл генерируется автоматически.\n Любые изменения этого файла будут потеряны при следующей компиляции.\n Любое изменение проекта без возможности компиляции ДОЛЬШЕ И ДОРОЖЕ в 2-5 раз.\n\n';
-
-// Настройки pug-компилятора
-let pugOption = {
-  data: { repoUrl: 'https://github.com/nicothin/NTH-start-project', },
-  filters: { 'show-code': filterShowCode, },
-};
 
 // Настройки бьютификатора
 let prettyOption = {
@@ -62,11 +52,10 @@ let prettyOption = {
 // Список и настройки плагинов postCSS
 let postCssPlugins = [
   autoprefixer({grid: true}),
-  mqpacker({
+  mqPacker({
     sort: true
   }),
-  atImport(),
-  inlineSVG(),
+  atImport()
 ];
 
 
@@ -86,7 +75,6 @@ function compilePug() {
   const fileList = [
     `${dir.src}pages/**/*.pug`
   ];
-  if(!buildLibrary) fileList.push(`!${dir.src}pages/blocks-demo.pug`);
   return src(fileList)
     .pipe(plumber({
       errorHandler: function (err) {
@@ -95,11 +83,12 @@ function compilePug() {
       }
     }))
     .pipe(debug({title: 'Compiles '}))
-    .pipe(pug(pugOption))
+    .pipe(pug({
+      data: { repoUrl: "https://gitlab.thecoders.ru/a.motorygin/project-builder" },
+      locals: JSON.parse(fs.readFileSync("./src/json/data.json", "utf8"))
+    }))
     .pipe(prettyHtml(prettyOption))
-    .pipe(replace(/^(\s*)(<button.+?>)(.*)(<\/button>)/gm, '$1$2\n$1  $3\n$1$4'))
-    .pipe(replace(/^( *)(<.+?>)(<script>)([\s\S]*)(<\/script>)/gm, '$1$2\n$1$3\n$4\n$1$5\n'))
-    .pipe(through2.obj(getClassesToBlocksList))
+    .pipe(through2.obj(getClassesToBlocksList, '', ''))
     .pipe(dest(dir.build));
 }
 exports.compilePug = compilePug;
@@ -109,7 +98,6 @@ function compilePugFast() {
   const fileList = [
     `${dir.src}pages/**/*.pug`
   ];
-  if(!buildLibrary) fileList.push(`!${dir.src}pages/blocks-demo.pug`);
   return src(fileList, { since: lastRun(compilePugFast) })
     .pipe(plumber({
       errorHandler: function (err) {
@@ -118,36 +106,41 @@ function compilePugFast() {
       }
     }))
     .pipe(debug({title: 'Compiles '}))
-    .pipe(pug(pugOption))
+    .pipe(pug({
+      data: { repoUrl: "https://gitlab.thecoders.ru/a.motorygin/project-builder" },
+      locals: JSON.parse(fs.readFileSync("./src/json/data.json", "utf8"))
+    }))
     .pipe(prettyHtml(prettyOption))
-    .pipe(replace(/^(\s*)(<button.+?>)(.*)(<\/button>)/gm, '$1$2\n$1  $3\n$1$4'))
-    .pipe(replace(/^( *)(<.+?>)(<script>)([\s\S]*)(<\/script>)/gm, '$1$2\n$1$3\n$4\n$1$5\n'))
-    .pipe(through2.obj(getClassesToBlocksList))
+    .pipe(through2.obj(getClassesToBlocksList, '', ''))
     .pipe(dest(dir.build));
 }
 exports.compilePugFast = compilePugFast;
 
 
 function copyAssets(cb) {
-  for (let item in nth.config.addAssets) {
-    let dest = `${dir.build}${nth.config.addAssets[item]}`;
-    cpy(item, dest);
+  let assetsPath = `${dir.src}assets/`;
+  if(fileExist(assetsPath)) {
+    return src(assetsPath + '**/*.*')
+      .pipe(dest(`${dir.build}assets/`))
   }
-  cb();
+  else {
+    cb();
+  }
 }
 exports.copyAssets = copyAssets;
 
 
-function copyImg(cb) {
+function copyBlockImg(cb) {
   let copiedImages = [];
   nth.blocksFromHtml.forEach(function(block) {
     let src = `${dir.blocks}${block}/img`;
-    if(fileExist(src)) copiedImages.push(`${src}/**/*.{png,jpg,jpeg,svg}`);
+    if(fileExist(src)) copiedImages.push(`${src}/*.{png,jpg,jpeg,svg,gif}`);
   });
   nth.config.alwaysAddBlocks.forEach(function(block) {
     let src = `${dir.blocks}${block}/img`;
-    if(fileExist(src)) copiedImages.push(`${src}/**/*.{png,jpg,jpeg,svg}`);
+    if(fileExist(src)) copiedImages.push(`${src}/*.{png,jpg,jpeg,svg,gif}`);
   });
+  console.log(copiedImages);
   if(copiedImages.length) {
     (async () => {
       await cpy(copiedImages, `${dir.build}img`);
@@ -158,52 +151,52 @@ function copyImg(cb) {
     cb();
   }
 }
-exports.copyImg = copyImg;
+exports.copyBlockImg = copyBlockImg;
 
 
 function generateSvgSprite(cb) {
-  let spriteSvgPath = `${dir.blocks}sprite-svg/svg/`;
-  if(nth.config.alwaysAddBlocks.indexOf('sprite-svg') > -1 && fileExist(spriteSvgPath)) {
-    return src(spriteSvgPath + '*.svg')
-      .pipe(svgmin(function () {
-        return { plugins: [{ cleanupIDs: { minify: true } }] }
+  let spriteSvgPath = `${dir.src}symbols/`;
+  if (fileExist(spriteSvgPath)) {
+    return src(spriteSvgPath + "*.svg")
+      .pipe(plumber({
+        errorHandler: function (err) {
+          console.log(err.message);
+          this.emit('end');
+        }
       }))
-      .pipe(svgstore({ inlineSvg: true }))
-      .pipe(rename('sprite.svg'))
-      .pipe(dest(`${dir.blocks}sprite-svg/img/`));
-  }
-  else {
+      .pipe(svgMin(function() {
+        return {
+          plugins: [
+            {
+              cleanupIDs: { minify: true }
+            },
+            {
+              name: "removeAttrs",
+              params: {
+                attrs: "(height|width)"
+              }
+            },
+            {
+              removeViewBox: false
+            }
+          ]
+        };
+      }))
+      .pipe(svgStore({ inlineSvg: true }))
+      .pipe(cheerio({
+        run: function ($) {
+          let addition = fs.readFileSync(dir.svgAsBg, "utf8");
+          $('svg').append(addition);
+        },
+        parserOptions: { xmlMode: true }
+      }))
+      .pipe(rename("svgSprite.svg"))
+      .pipe(dest(`${dir.build}img/`));
+  } else {
     cb();
   }
 }
 exports.generateSvgSprite = generateSvgSprite;
-
-
-function generatePngSprite(cb) {
-  let spritePngPath = `${dir.blocks}sprite-png/png/`;
-  if(nth.config.alwaysAddBlocks.indexOf('sprite-png') > -1 && fileExist(spritePngPath)) {
-    del(`${dir.blocks}sprite-png/img/*.png`);
-    let fileName = 'sprite-' + Math.random().toString().replace(/[^0-9]/g, '') + '.png';
-    let spriteData = src(spritePngPath + '*.png')
-      .pipe(spritesmith({
-        imgName: fileName,
-        cssName: 'sprite-png.scss',
-        padding: 4,
-        imgPath: '../img/' + fileName
-      }));
-    let imgStream = spriteData.img
-      .pipe(buffer())
-      .pipe(imagemin([ imagemin.optipng({ optimizationLevel: 5 }) ]))
-      .pipe(dest(`${dir.blocks}sprite-png/img/`));
-    let cssStream = spriteData.css
-      .pipe(dest(`${dir.blocks}sprite-png/`));
-    return merge(imgStream, cssStream);
-  }
-  else {
-    cb();
-  }
-}
-exports.generatePngSprite = generatePngSprite;
 
 
 function writeSassImportsFile(cb) {
@@ -217,7 +210,7 @@ function writeSassImportsFile(cb) {
   let allBlocksWithScssFiles = getDirectories('scss');
   allBlocksWithScssFiles.forEach(function(blockWithScssFile){
     let url = `${dir.blocks}${blockWithScssFile}/${blockWithScssFile}.scss`;
-    if (nth.blocksFromHtml.indexOf(blockWithScssFile) == -1) return;
+    if (nth.blocksFromHtml.indexOf(blockWithScssFile) === -1) return;
     if (newScssImportsList.indexOf(url) > -1) return;
     newScssImportsList.push(url);
   });
@@ -245,7 +238,6 @@ function compileSass() {
   const fileList = [
     `${dir.src}scss/style.scss`,
   ];
-  if(buildLibrary) fileList.push(`${dir.blocks}blocks-library/blocks-library.scss`);
   return src(fileList, { sourcemaps: true })
     .pipe(plumber({
       errorHandler: function (err) {
@@ -258,6 +250,7 @@ function compileSass() {
     .pipe(postcss(postCssPlugins))
     .pipe(csso({
       restructure: false,
+      comments: false
     }))
     .pipe(dest(`${dir.build}/css`, { sourcemaps: mode === 'development' ? '.' : false }))
     .pipe(browserSync.stream());
@@ -272,12 +265,12 @@ function writeJsRequiresFile(cb) {
   });
   const allBlocksWithJsFiles = getDirectories('js');
   allBlocksWithJsFiles.forEach(function(blockName){
-    if (nth.config.alwaysAddBlocks.indexOf(blockName) == -1) return;
+    if (nth.config.alwaysAddBlocks.indexOf(blockName) === -1) return;
     jsRequiresList.push(`../blocks/${blockName}/${blockName}.js`)
   });
   allBlocksWithJsFiles.forEach(function(blockName){
     let src = `../blocks/${blockName}/${blockName}.js`
-    if (nth.blocksFromHtml.indexOf(blockName) == -1) return;
+    if (nth.blocksFromHtml.indexOf(blockName) === -1) return;
     if (jsRequiresList.indexOf(src) > -1) return;
     jsRequiresList.push(src);
   });
@@ -297,11 +290,10 @@ function writeJsRequiresFile(cb) {
 exports.writeJsRequiresFile = writeJsRequiresFile;
 
 
-function buildJs() {
+function compileJs() {
   const entryList = {
     'bundle': `./${dir.src}js/entry.js`,
   };
-  if(buildLibrary) entryList['blocks-library'] = `./${dir.blocks}blocks-library/blocks-library.js`;
   return src(`${dir.src}js/entry.js`)
     .pipe(plumber())
     .pipe(webpackStream({
@@ -322,7 +314,7 @@ function buildJs() {
             test: /\.(js)$/,
             exclude: /(node_modules)/,
             loader: 'babel-loader',
-            query: {
+            options: {
               presets: ['@babel/preset-env']
             }
           }
@@ -334,7 +326,89 @@ function buildJs() {
     }))
     .pipe(dest(`${dir.build}js`));
 }
-exports.buildJs = buildJs;
+exports.compileJs = compileJs;
+
+function buildJs() {
+  const entryList = {
+    'bundle': `./${dir.src}js/entry.js`,
+  };
+  return src(`${dir.src}js/entry.js`)
+    .pipe(plumber())
+    .pipe(webpackStream({
+      mode: mode,
+      entry: entryList,
+      devtool: mode === 'development' ? 'inline-source-map' : false,
+      output: {
+        filename: '[name].js',
+      },
+      resolve: {
+        alias: {
+          Utils: path.resolve(__dirname, 'src/js/utils/'),
+        },
+      },
+      module: {
+        rules: [
+          {
+            test: /\.(js)$/,
+            exclude: /(node_modules)/,
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env']
+            }
+          }
+        ]
+      },
+      // externals: {
+      //   jquery: 'jQuery'
+      // }
+    }))
+    .pipe(uglify({
+      output: {
+        comments: false
+      }
+    }))
+    .pipe(dest(`${dir.build}js`));
+}
+exports.buildJs = buildJs
+
+
+function buildJson(cb) {
+  const jsonList = `${dir.data}**/*.json`;
+  if (jsonList) {
+    return src(jsonList)
+      .pipe(plumber())
+      .pipe(jsonConcat('data.json',function(data){
+        return new Buffer.from(JSON.stringify(data));
+      }))
+      .pipe(dest(`${dir.src}json`));
+  } else {
+    cb();
+  }
+}
+exports.buildJson = buildJson;
+
+
+function copyAdditions(cb) {
+  for (let item in nth.config.addAdditions) {
+    let dest = `${dir.build}${nth.config.addAdditions[item]}`;
+    cpy(item, dest);
+  }
+  cb();
+}
+exports.copyAdditions = copyAdditions;
+
+
+function copyFonts(cb) {
+  let fontsPath = `${dir.src}fonts/`;
+  if(fileExist(fontsPath)) {
+    return src(fontsPath + '**/*.*')
+      .pipe(dest(`${dir.build}/fonts/`))
+  }
+  else {
+    cb();
+  }
+}
+exports.copyFonts = copyFonts;
 
 
 function clearBuildDir() {
@@ -352,7 +426,7 @@ function reload(done) {
 }
 
 function deploy(cb) {
-  ghpages.publish(path.join(process.cwd(), dir.build), cb);
+  ghPages.publish(path.join(process.cwd(), dir.build), "", cb).then();
 }
 exports.deploy = deploy;
 
@@ -361,7 +435,9 @@ function serve() {
 
   browserSync.init({
     server: dir.build,
-    port: 8080,
+    host: '192.168.1.39',
+    logPrefix: "dev-server",
+    port: 3000,
     startPath: 'index.html',
     open: false,
     notify: false,
@@ -370,14 +446,13 @@ function serve() {
   // Страницы: изменение, добавление
   watch([`${dir.src}pages/**/*.pug`], { events: ['change', 'add'], delay: 100 }, series(
     compilePugFast,
-    parallel(writeSassImportsFile, writeJsRequiresFile),
-    parallel(compileSass, buildJs),
+    //parallel(writeSassImportsFile, writeJsRequiresFile),
+    //parallel(compileSass, compileJs),
     reload
   ));
 
   // Страницы: удаление
   watch([`${dir.src}pages/**/*.pug`], { delay: 100 })
-  // TODO попробовать с events: ['unlink']
     .on('unlink', function(path) {
       let filePathInBuildDir = path.replace(`${dir.src}pages/`, dir.build).replace('.pug', '.html');
       fs.unlink(filePathInBuildDir, (err) => {
@@ -406,7 +481,7 @@ function serve() {
   watch([`${dir.src}pug/**/*.pug`, `!${dir.src}pug/mixins.pug`], { delay: 100 }, series(
     compilePug,
     parallel(writeSassImportsFile, writeJsRequiresFile),
-    parallel(compileSass, buildJs),
+    parallel(compileSass, compileJs),
     reload,
   ));
 
@@ -429,43 +504,78 @@ function serve() {
   // Скриптовые глобальные файлы: все события
   watch([`${dir.src}js/**/*.js`, `!${dir.src}js/entry.js`, `${dir.blocks}**/*.js`], { events: ['all'], delay: 100 }, series(
     writeJsRequiresFile,
-    buildJs,
+    compileJs,
     reload
   ));
 
-  // Картинки: все события
-  watch([`${dir.blocks}**/img/*.{jpg,jpeg,png,gif,svg,webp}`], { events: ['all'], delay: 100 }, series(copyImg, reload));
+  // Картинки: копирование из общей папки
+  watch([`${dir.src}/img/**/*.{jpg,jpeg,png,gif,svg,webp}`, `${dir.src}/favicon/**/*.*"`], { events: ['all'], delay: 100 }, series(
+    copyAdditions,
+    reload
+  ));
 
-  // Спрайт SVG
-  watch([`${dir.blocks}sprite-svg/svg/*.svg`], { events: ['all'], delay: 100 }, series(
-    generateSvgSprite,
-    copyImg,
+  // Картинки: копирование из блоков
+  watch([`${dir.blocks}**/img/**/*.{jpg,jpeg,png,gif,svg,webp}`], { events: ["all"], delay: 100 }, series(
+    copyBlockImg,
+    reload
+  ));
+
+  // Картинки: копирование из assets
+  watch([`${dir.src}assets/**/*.*`], { events: ['all'], delay: 100 }, series(
+    copyAssets,
     reload,
   ));
 
-  // Спрайт PNG
-  watch([`${dir.blocks}sprite-png/png/*.png`], { events: ['all'], delay: 100 }, series(
-    generatePngSprite,
-    copyImg,
-    compileSass,
+  // Спрайт SVG
+  watch([`${dir.src}symbols/*.svg`], { events: ['all'], delay: 100 }, series(
+    generateSvgSprite,
     reload,
+  ));
+
+  // Копирование шрифтов
+  watch([`${dir.src}fonts/`], { events: ['all'], delay: 100 }, series(
+    copyFonts,
+    reload,
+  ));
+
+  // Сборка json: изменение
+  watch([`${dir.data}**/*.json`], { events: ['change'], delay: 100 }, series(
+    buildJson,
+    compilePug,
+    reload
+  ));
+
+  // Сборка json: добавление
+  watch([`${dir.data}**/*.json`], { events: ['add'], delay: 100 }, series(
+    buildJson,
+    compilePug,
+    reload
+  ));
+
+  // Сборка json: все события
+  watch([`${dir.data}**/*.json`], { events: ['all'], delay: 100 }, series(
+    buildJson,
+    compilePug,
+    reload
   ));
 }
 
 
 exports.build = series(
   parallel(clearBuildDir, writePugMixinsFile),
-  parallel(compilePugFast, copyAssets, generateSvgSprite, generatePngSprite),
-  parallel(copyImg, writeSassImportsFile, writeJsRequiresFile),
+  parallel(buildJson),
+  parallel(compilePugFast, copyAssets, generateSvgSprite),
+  parallel(copyAdditions, copyFonts, copyBlockImg, writeSassImportsFile, writeJsRequiresFile),
   parallel(compileSass, buildJs),
 );
 
 
 exports.default = series(
   parallel(clearBuildDir, writePugMixinsFile),
-  parallel(compilePugFast, copyAssets, generateSvgSprite, generatePngSprite),
-  parallel(copyImg, writeSassImportsFile, writeJsRequiresFile),
-  parallel(compileSass, buildJs),
+  parallel(buildJson),
+  parallel(compilePugFast, copyAssets, generateSvgSprite),
+  parallel(copyAdditions, copyFonts, copyBlockImg, writeSassImportsFile, writeJsRequiresFile),
+  parallel(compileSass, compileJs),
   serve,
 );
 
@@ -490,7 +600,7 @@ function getClassesToBlocksList(file, enc, cb) {
   // Проверяем, не является ли обрабатываемый файл исключением
   let processThisFile = true;
   nth.config.notGetBlocks.forEach(function(item) {
-    if (file.relative.trim() == item.trim()) processThisFile = false;
+    if (file.relative.trim() === item.trim()) processThisFile = false;
   });
   // Файл не исключён из обработки, погнали
   if (processThisFile) {
@@ -515,25 +625,10 @@ function getClassesToBlocksList(file, enc, cb) {
   cb();
 }
 
-//
-/**
- * Pug-фильтр, выводящий содержимое pug-файла в виде форматированного текста
- */
-function filterShowCode(text, options) {
-  var lines = text.split('\n');
-  var result = '<pre class="code">\n';
-  if (typeof(options['first-line']) !== 'undefined') result = result + '<code>' + options['first-line'] + '</code>\n';
-  for (var i = 0; i < (lines.length - 1); i++) { // (lines.length - 1) для срезания последней строки (пустая)
-    result = result + '<code>' + lines[i].replace(/</gm, '&lt;') + '</code>\n';
-  }
-  result = result + '</pre>\n';
-  result = result.replace(/<code><\/code>/g, '<code>&nbsp;</code>');
-  return result;
-}
 
 /**
  * Проверка существования файла или папки
- * @param  {string} path      Путь до файла или папки
+ * @param  {string} filepath      Путь до файла или папки
  * @return {boolean}
  */
 function fileExist(filepath){
@@ -553,10 +648,9 @@ function fileExist(filepath){
  */
 function getDirectories(ext) {
   let source = dir.blocks;
-  let res = fs.readdirSync(source)
+  return fs.readdirSync(source)
     .filter(item => fs.lstatSync(source + item).isDirectory())
     .filter(item => fileExist(source + item + '/' + item + '.' + ext));
-  return res;
 }
 
 /**

@@ -1,37 +1,46 @@
 /* global module */
 
 let config = {
-  notGetBlocks: ["blocks-demo.html"],
-  ignoredBlocks: ["no-js"],
-  alwaysAddBlocks: [
-    // 'sprite-svg',
-    // 'sprite-png',
+  "notGetBlocks": [],
+  "ignoredBlocks": [
+    "no-js",
   ],
-  addStyleBefore: [
+  "alwaysAddBlocks": [],
+  "addStyleBefore": [
+    "sanitize.css/sanitize.css",
+    "sanitize.css/forms.css",
+    "sanitize.css/assets.css",
+    "sanitize.css/typography.css",
+    "sanitize.css/reduce-motion.css",
     "src/scss/variables.scss",
+    "src/scss/reboot.scss",
     "src/scss/mixins.scss",
-    "src/scss/base.scss",
+    // "src/scss/typography.scss",
+    // "src/scss/vendor.scss",
+    "src/scss/fonts.scss",
     "src/scss/ui.scss",
-    // 'somePackage/dist/somePackage.css', // для 'node_modules/somePackage/dist/somePackage.css',
+    // "src/scss/animations.scss"
+    // "somePackage/dist/somePackage.css", // для "node_modules/somePackage/dist/somePackage.css",
   ],
-  addStyleAfter: [
-    // 'src/scss/print.scss',
+  "addStyleAfter": [],
+  "addJsBefore": [
+    // "somePackage/dist/somePackage.js", // для "node_modules/somePackage/dist/somePackage.js",
   ],
-  addJsBefore: [
-    // 'somePackage/dist/somePackage.js', // для 'node_modules/somePackage/dist/somePackage.js',
+  "addJsAfter": [
+    "./script.js",
   ],
-  addJsAfter: ["./script.js"],
-  addAssets: {
-    "src/img/*.{png,svg,jpg,jpeg}": "img/",
-    "src/fonts/*.woff2": "fonts/",
-    // 'src/favicon/*.{png,ico,svg,xml,webmanifest}': 'img/favicon',
-    // 'node_modules/somePackage/images/*.{png,svg,jpg,jpeg}': 'img/',
+  "addAdditions": {
+    "src/img/**/*.*": "img/",
+    "src/favicon/*.*": "img/favicon",
+    // "node_modules/somePackage/images/*.{png,svg,jpg,jpeg}": "img/",
   },
-  dir: {
-    src: "src/",
-    build: "build/",
-    blocks: "src/blocks/",
-  },
+  "dir": {
+    "src": "src/",
+    "data": "src/data/",
+    "build": "build/",
+    "blocks": "src/blocks/",
+    "svgAsBg": "src/symbols/svgAsBg.xml"
+  }
 };
 
 module.exports = config;

@@ -19,7 +19,7 @@
     line-height: 1em;
     color: $text-color-muted;
 
-    @media (max-width: ($screen-md - 1)) {
+    @media (max-width: ($screen-ti - 1)) {
       display: block;
       margin-top: 1em;
       margin-bottom: 0.5em;
@@ -48,7 +48,7 @@
     text-align: inherit;
   }
 
-  @media (max-width: ($screen-md - 1)) {
+  @media (max-width: ($screen-ti - 1)) {
     display: block;
     border: 0;
 
@@ -65,7 +65,8 @@
         border: 1px solid $border-color;
         border-bottom: 0;
 
-        &:not(:last-child) { // stylelint-disable-line  max-nesting-depth
+        &:not(:last-child) {
+          // stylelint-disable-line  max-nesting-depth
           margin-bottom: 1em * $line-height;
         }
       }
@@ -76,7 +77,8 @@
         border-right: 0 !important; // stylelint-disable-line  declaration-no-important
         border-left: 0 !important; // stylelint-disable-line  declaration-no-important
 
-        &:before { // stylelint-disable-line  max-nesting-depth
+        &:before {
+          // stylelint-disable-line  max-nesting-depth
           content: attr(data-label);
           display: block;
           font-weight: 700;

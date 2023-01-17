@@ -1,0 +1,110 @@
+.basket-page-item {
+  display: grid;
+  grid-template-columns: 103px 1fr 127px 86px 275px 101px;
+  gap: 4px;
+
+  position: relative;
+  padding: 15px 12px;
+  align-self: center;
+
+  transition: box-shadow 0.3s;
+
+  &:not(:last-child) {
+    &:after {
+      content: "";
+      display: block;
+      height: 2px;
+      background-color: rgba($dark-text, 0.1);
+
+      position: absolute;
+      left: 23px;
+      right: 23px;
+      bottom: 0;
+    }
+  }
+
+  &:nth-child(even) {
+    .price-main {
+      color: $dark-text;
+    }
+  }
+
+  &:hover {
+    background-color: $white;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+
+    &:after {
+      content: none;
+    }
+  }
+
+  &__title {
+    @include font-size(500, 16px, 1.2);
+    color: $dark-text;
+
+    text-decoration: none;
+
+    max-width: 270px;
+  }
+
+  &__img {
+    position: relative;
+    text-decoration: none;
+  }
+
+  &__wrap-price {
+    display: inline-block;
+    position: relative;
+
+    margin-left: 79px;
+    margin-right: 20px;
+    padding: 20px 45px 20px 0;
+
+    .price-old {
+      position: absolute;
+      top: 4px;
+      left: 0;
+    }
+  }
+
+  &__right {
+    @include flex-center;
+    justify-content: space-between;
+  }
+
+  &__delete {
+    @include clear-button;
+    padding: 20px;
+
+    transition: transform 0.5s;
+
+    &:hover {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__btn {
+    @include flex-center;
+    justify-content: center;
+
+    padding: 5px;
+    width: 24px;
+    height: 24px;
+    background-color: $white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+  }
+
+  &__badge-img {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+
+  &__badge-price {
+    position: absolute;
+    right: 0;
+    bottom: 21px;
+  }
+}

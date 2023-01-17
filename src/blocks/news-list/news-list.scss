@@ -8,7 +8,7 @@
 
     margin-bottom: 43px;
 
-    @media screen and (min-width: $screen-lg) {
+    @media screen and (min-width: $screen-tl) {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: $col-gap;
@@ -78,11 +78,7 @@
       height: 82px;
       bottom: -42px;
 
-      background: linear-gradient(
-        0deg,
-        #ffffff 50%,
-        rgba(255, 255, 255, 0) 100%
-      );
+      background: linear-gradient(0deg, #ffffff 50%, rgba(255, 255, 255, 0) 100%);
     }
   }
 
@@ -112,7 +108,7 @@
       }
     }
 
-    @media screen and (min-width: $screen-lg) {
+    @media screen and (min-width: $screen-tl) {
       width: auto;
     }
   }

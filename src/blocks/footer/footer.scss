@@ -4,7 +4,7 @@
   padding: 40px 0;
   color: $white;
 
-  @media screen and (min-width: $screen-md) {
+  @media screen and (min-width: $screen-ti) {
     padding: 95px 0 84px;
   }
 
@@ -15,11 +15,11 @@
 
     max-width: 1100px;
 
-    @media screen and (min-width: $screen-md) {
+    @media screen and (min-width: $screen-ti) {
       grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 
-    @media screen and (min-width: $screen-lg) {
+    @media screen and (min-width: $screen-tl) {
       gap: 72px;
       grid-template-columns: 260px 138px 176px 1fr;
     }
@@ -30,7 +30,7 @@
 
     margin-bottom: 36px;
 
-    @media screen and (min-width: $screen-md) {
+    @media screen and (min-width: $screen-ti) {
       margin-top: -43px;
     }
   }
@@ -73,7 +73,7 @@
   }
 
   &__last-col {
-    @media screen and (min-width: $screen-md) {
+    @media screen and (min-width: $screen-ti) {
       display: flex;
       flex-direction: column;
       align-items: flex-end;

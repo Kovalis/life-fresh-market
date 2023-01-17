@@ -12,8 +12,37 @@
   background-color: $white;
   z-index: 9;
 
+  @media screen and (min-width: $screen-t) {
+    top: 119px;
+    height: calc(100% - 119px);
+    padding-top: 0;
+
+    &:before {
+      content: "";
+      display: block;
+
+      position: absolute;
+      top: 0;
+      right: 50px;
+      bottom: 0;
+      left: 0;
+      background-color: rgba($dark-text, 0.7);
+    }
+  }
+
   &_show {
     display: block;
+  }
+
+  &__wrap {
+    position: relative;
+    z-index: 2;
+    background-color: $white;
+    min-height: 100%;
+
+    @media screen and (min-width: $screen-t) {
+      max-width: 302px;
+    }
   }
 
   &__title {
@@ -22,10 +51,20 @@
 
     padding-left: 16px;
     margin-bottom: 16px;
+
+    @media screen and (min-width: $screen-t) {
+      text-align: right;
+      padding-top: 16px;
+      padding-right: 18px;
+    }
   }
 
   &__list {
     position: relative;
+
+    @media screen and (min-width: $screen-t) {
+      position: unset;
+    }
   }
 
   &__li {
@@ -72,28 +111,5 @@
 
     width: 55px;
     flex-shrink: 0;
-  }
-
-  &__submenu {
-    display: none;
-
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 1;
-
-    transform: translateX(100%);
-
-    background-color: $grey;
-    width: calc(100% - 50px);
-    padding-left: 25px;
-
-    transition: 0.5s transform;
-
-    &_active {
-      display: block;
-      transform: translateX(0);
-    }
   }
 }

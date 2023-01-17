@@ -1,0 +1,44 @@
+.sidebar-basket-total {
+  padding: 22px 30px;
+  background-color: $accent-color;
+  border-radius: 5px;
+
+  &__row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 13px;
+  }
+
+  &__name {
+    @include font-size(400, 10px, 1.2);
+    color: rgba($dark-text, 0.7);
+  }
+
+  &__count {
+    @include font-size(700, 14px, 1.2);
+    color: $dark-text;
+
+    &_discount {
+      color: $red-color;
+    }
+  }
+
+  &__count-total {
+    @include font-size(700, 32px, 1.2);
+    color: $dark-text;
+  }
+
+  &__btn {
+    @include clear-button;
+    @include font-size(700, 16px, 1.2);
+    color: $dark-text;
+    text-align: center;
+
+    padding: 16px;
+    width: 100%;
+    background-color: $white;
+    box-shadow: 0px 0px 20px $white;
+    border-radius: 5px;
+  }
+}

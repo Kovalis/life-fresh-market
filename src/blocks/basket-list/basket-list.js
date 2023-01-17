@@ -2,38 +2,33 @@ import ready from "../../js/utils/documentReady";
 
 ready(function () {
   const parentEl = ".basket-item",
-    addEl = document.querySelectorAll(".js-basket-list-btn-add"),
-    removeEl = document.querySelectorAll(".js-basket-list-btn-remove"),
-    deleteProduct = document.querySelectorAll(".js-basket-item-close");
+    wrapBasket = document.querySelector(".sidebar__exist");
 
-  addEl.forEach(function (element) {
-    element.addEventListener("click", () => {
-      const item = element
-        .closest(`${parentEl}`)
-        .querySelector(".basket-item__count");
-      console.log(item);
-      let startCount = item.innerHTML;
-      let countEl = Number(startCount) + 1;
-      item.innerHTML = countEl;
-    });
-  });
+  if (wrapBasket) {
+    wrapBasket.addEventListener("click", function (element) {
+      if (element.target.classList.contains("basket-item__close")) {
+        element.target.closest(`${parentEl}`).remove();
+      }
 
-  removeEl.forEach(function (element) {
-    element.addEventListener("click", () => {
-      const item = element
-        .closest(`${parentEl}`)
-        .querySelector(".basket-item__count");
-      let startCount = item.innerHTML;
-      let countEl = Number(startCount) - 1;
-      if (countEl > 0) {
+      if (element.target.classList.contains("js-basket-list-btn-add")) {
+        const item = element.target
+          .closest(`${parentEl}`)
+          .querySelector(".basket-item__count");
+        let startCount = item.innerHTML;
+        let countEl = Number(startCount) + 1;
         item.innerHTML = countEl;
       }
-    });
-  });
 
-  deleteProduct.forEach(function (element) {
-    element.addEventListener("click", () => {
-      element.closest(`${parentEl}`).remove();
+      if (element.target.classList.contains("js-basket-list-btn-remove")) {
+        const item = element.target
+          .closest(`${parentEl}`)
+          .querySelector(".basket-item__count");
+        let startCount = item.innerHTML;
+        let countEl = Number(startCount) - 1;
+        if (countEl > 0) {
+          item.innerHTML = countEl;
+        }
+      }
     });
-  });
+  }
 });
