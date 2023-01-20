@@ -24,10 +24,11 @@ let config = {
   ],
   "addStyleAfter": [],
   "addJsBefore": [
+    "./script.js",
     // "somePackage/dist/somePackage.js", // для "node_modules/somePackage/dist/somePackage.js",
   ],
   "addJsAfter": [
-    "./script.js",
+    
   ],
   "addAdditions": {
     "src/img/**/*.*": "img/",

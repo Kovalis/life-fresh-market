@@ -4,56 +4,55 @@ mixin sidebar-basket-form
             .basket-form-item__title Контактные данные
             .basket-form-item__col-2
                 .input-item
-                    .input-item__placeholder Ваше имя
-                    input.input-item__input(type="text")
+                    label(for="basket-product-name").input-item__placeholder Ваше имя
+                    input.input-item__input(type="text", id="basket-product-name")
                 .input-item
-                    .input-item__placeholder Номер телефона
-                    input.input-item__input(type="tel")
+                    label(for="basket-product-tel").input-item__placeholder Номер телефона
+                    input.input-item__input(type="tel", id="basket-product-tel")
             .input-item
-                .input-item__placeholder Ваш e-mail
-                input.input-item__input(type="text")
+                label(for="basket-product-mail").input-item__placeholder Ваш e-mail
+                input.input-item__input(type="text", id="basket-product-mail")
         .basket-form-item
-            .basket-form-item__title Адрес доставки            
+            .basket-form-item__title Адрес доставки
             .input-item
-                .input-item__placeholder ул.Пимена-панчанки, д. 12, под. 4, кв. 312
-                input.input-item__input(type="text")
+                label(for="basket-product-adres").input-item__placeholder ул.Пимена-панчанки, д. 12, под. 4, кв. 312
+                input.input-item__input(type="text", id="basket-product-adres")
             .input-item
-                .input-item__placeholder Начните вводить новый адрес
-                input.input-item__input(type="text")
-            .basket-form-item__col-3 
+                label(for="basket-product-new-adres").input-item__placeholder Начните вводить новый адрес
+                input.input-item__input(type="text", id="basket-product-new-adres")
+            .basket-form-item__col-3
                 .input-item
-                    .input-item__placeholder Подъезд
-                    input.input-item__input(type="text")
+                    label(for="basket-product-entrance").input-item__placeholder Подъезд
+                    input.input-item__input(type="text", id="basket-product-entrance")
                 .input-item
-                    .input-item__placeholder 12
-                    input.input-item__input(type="number")
+                    label(for="basket-product-number").input-item__placeholder 12
+                    input.input-item__input(type="number", id="basket-product-number")
                 .input-item
-                    .input-item__placeholder Квартира
-                    input.input-item__input(type="text")
+                    label(for="basket-product-apartment").input-item__placeholder Квартира
+                    input.input-item__input(type="text", id="basket-product-apartment")
             .input-item
-                .input-item__placeholder Выберите дату доставки
-                input.input-item__input.js-input-date(type="text")
+                label(for="basket-product-data-delivery").input-item__placeholder Выберите дату доставки
+                input.input-item__input.js-input-date(type="text", id="basket-product-data-delivery")
         .basket-form-item
             .basket-form-item__title Оплата заказа
             .basket-form-item__grid-card
                 .input-item
-                    
                     input(type="radio", id="pay", name="paycard", checked="checked")
                     label.input-item__label-card(for="pay") Картой онлайн
                 .input-item
-                    .input-item__placeholder 
+                    label.input-item__placeholder 
                     input(type="radio", id="pay2", name="paycard")
                     label.input-item__label-card(for="pay2") Картой курьеру
                 .input-item
-                    .input-item__placeholder 
+                    label.input-item__placeholder
                     input(type="radio", id="pay3", name="paycard")
                     label.input-item__label-card(for="pay3") Наличными курьеру
                 .input-item
-                    .input-item__placeholder 
+                    label.input-item__placeholder 
                     input(type="radio", id="pay4", name="paycard")
                     label.input-item__label-card(for="pay4") Сертификатом
             .input-item
-                .input-item__placeholder Комментарий к заказу
+                label.input-item__placeholder Комментарий к заказу
                 input.input-item__input(type="text")
         .calculate-in-basket
             .calculate-in-basket__title Калькулятор БЖУ в корзине

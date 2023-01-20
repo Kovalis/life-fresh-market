@@ -14,22 +14,20 @@ mixin sidebar
             .sidebar__exist
                 .sidebar__title Бакалея
                 .basket-list
-                template.js-template-basket-product
-                    .basket-list__item
-                        .basket-item
-                            img.basket-item__img(src='', alt='', width='29', height='50') 
-                            .basket-item__grid
-                                .basket-item__count-wrap.basket-count-wrap
-                                    button.basket-item__btn.basket-count-wrap__btn.js-basket-list-btn-add +
-                                    .basket-item__count.basket-count-wrap__count 2
-                                    button.basket-item__btn.basket-count-wrap__btn.js-basket-list-btn-remove -
-                                .basket-item__col 
-                                    .basket-item__name
-                                    .basket-item__bottom
-                                        .basket-item__price
-                                        .basket-item__weight
-                            .basket-item__close
-          
+                template.js-template-basket-product                    
+                    .basket-list__item.basket-item
+                        img.basket-item__img(src='', alt='', width='29', height='50') 
+                        .basket-item__grid
+                            .basket-item__count-wrap.basket-count-wrap
+                                button.basket-item__btn.basket-count-wrap__btn.js-basket-list-btn-add +
+                                .basket-item__count.basket-count-wrap__count 2
+                                button.basket-item__btn.basket-count-wrap__btn.js-basket-list-btn-remove -
+                            .basket-item__col 
+                                .basket-item__name
+                                .basket-item__bottom
+                                    .basket-item__price
+                                    .basket-item__weight
+                        .basket-item__close          
                 .sidebar__title Вы обычно покупаете:
                 .sidebar__scroll-list
                     .sidebar__scroll-item.basket-item

@@ -1,3 +1,4 @@
+import { removeElementStore } from "../../js/script";
 import ready from "../../js/utils/documentReady";
 
 ready(function () {
@@ -7,7 +8,10 @@ ready(function () {
   if (wrapBasket) {
     wrapBasket.addEventListener("click", function (element) {
       if (element.target.classList.contains("basket-item__close")) {
-        element.target.closest(`${parentEl}`).remove();
+        const elementsList = element.target.closest('.basket-item');
+        const parentEl = Array.prototype.slice.call(element.target.closest('.basket-list').children);
+        removeElementStore(parentEl.indexOf(elementsList));
+        elementsList.remove();
       }
 
       if (element.target.classList.contains("js-basket-list-btn-add")) {
