@@ -6,12 +6,8 @@ block meta
 block content
     .container__main
       h1 Оформление заказа
-      .basket-page-list
-        +basket-page-item
-        +basket-page-item
-        +basket-page-item
-        +basket-page-item
-        +basket-page-item
+      .basket-page-list.js-wrap-product-list
+      template.js-template-basket-page-item
         +basket-page-item
       .page__products-list.product-wrap
         +flex-title('Рекомендуем','Смотреть все', 'section-title_red')

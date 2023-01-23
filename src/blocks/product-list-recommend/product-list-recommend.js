@@ -5,9 +5,7 @@ ready(function () {
   console.log("23562");
   const parentEl = ".js-product-list-recommend";
   const PARENT = document.querySelector(`${parentEl}`);
-  console.log(PARENT);
   if (PARENT) {
-    console.log("3489");
     const swiper = new Swiper(`${parentEl} .swiper`, {
       modules: [Navigation, Scrollbar],
       slidesPerView: 3,

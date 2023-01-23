@@ -1,29 +1,29 @@
 mixin basket-page-item
-    .basket-page-item
+    .basket-page-item.js-basket-item
         a.basket-page-item__img(href="#") 
-            img(src="./img/example.png", alt="", width="103", height="103")
+            img.js-basket-item__img(src="./img/example.png", alt="", width="103", height="103")
             .basket-page-item__badge-img.badge.badge_big -26%
-        a.basket-page-item__title(href="#")
-            | Макаронные изделия Макфа Триколлини свитки
-        .composition-list 
-            .composition-list__item
-                .composition-list__item-text Б
-                | 2.5 г
-            .composition-list__item
-                .composition-list__item-text Ж
-                | 20 г
-            .composition-list__item
-                .composition-list__item-text У
-                | 2.9 г
-        .basket-count-wrap
-            button.basket-page-item__btn.basket-count-wrap__btn.js-basket-page-item-remove -
-            .basket-count-wrap__count 1
-            button.basket-page-item__btn.basket-count-wrap__btn.js-basket-page-item-add +
-        div 
-            .basket-page-item__wrap-price
-                .price-old 120 руб.
-                .price-main.price-main_basket 120 руб.
-                .basket-page-item__badge-price.badge -26%
+        .basket-page-item__flex
+            a.basket-page-item__title.js-basket-item__name(href="#")
+            .composition-list 
+                .composition-list__item
+                    .composition-list__item-text Б
+                    | 2.5 г
+                .composition-list__item
+                    .composition-list__item-text Ж
+                    | 20 г
+                .composition-list__item
+                    .composition-list__item-text У
+                    | 2.9 г
+            .basket-count-wrap
+                button.basket-page-item__btn.basket-count-wrap__btn.js-basket-list-btn-remove -
+                .basket-count-wrap__count.js-basket-item__count 1
+                button.basket-page-item__btn.basket-count-wrap__btn.js-basket-list-btn-add +
+            div 
+                .basket-page-item__wrap-price
+                    .price-old 120 руб.
+                    .price-main.price-main_basket.js-basket-item__price
+                    .basket-page-item__badge-price.badge -26%
         .basket-page-item__right
             button.favorite-btn
                 svg
