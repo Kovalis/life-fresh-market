@@ -32,7 +32,6 @@ export function addStore(srcImg, titleProduct, priceProduct, weightProduct) {
   }
 }
 
-// function addSidebarBasket(srcImg, titleProduct, priceProduct, weightProduct) {
 function addSidebarBasket() {
   const basketSidebar = document.querySelector(`.sidebar__exist`);
   if (basketSidebar) {
@@ -85,9 +84,11 @@ const parentEl = ".js-basket-item",
 
 if (wrapBasket) {
   wrapBasket.addEventListener("click", function (element) {
-    if (element.target.classList.contains("basket-item__close")) {
-      const elementsList = element.target.closest(".basket-item");
-      const parentEl = Array.prototype.slice.call(element.target.closest(".basket-list").children);
+    if (element.target.classList.contains("js-basket-item__close")) {
+      const elementsList = element.target.closest(".js-basket-item");
+      const parentEl = Array.prototype.slice.call(
+        element.target.closest(".js-wrap-product-list").children,
+      );
       removeElementStore(parentEl.indexOf(elementsList));
       elementsList.remove();
     }

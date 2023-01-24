@@ -53,6 +53,14 @@
   }
 
   &_basket {
+    @media screen and (max-width: $screen-ti) {
+      #{$this} {
+        &__sidebar {
+          display: block;
+        }
+      }
+    }
+
     @media screen and (min-width: $screen-d) {
       max-width: 1631px;
       display: grid;
@@ -596,12 +604,20 @@ input {
 }
 
 .composition-list {
+  width: 55px;
+
+  @media (max-width: $screen-ti) {
+    display: flex;
+    gap: 5px;
+  }
+
   &__item {
     @include font-size(400, 14px, 1.2);
     color: $dark-text;
 
     display: flex;
     gap: 5px;
+    white-space: nowrap;
   }
 
   &__item-text {

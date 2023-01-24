@@ -38,7 +38,6 @@ ready(function () {
               this.closest(".product-cart").querySelector(".product-cart__title").innerText,
             priceProduct = this.closest(".product-cart").querySelector(".price-main").innerText,
             weightProduct = this.closest(".product-cart").getAttribute("data-weight");
-          console.log(srcImg, titleProduct, priceProduct, weightProduct);
 
           //add in LocalStorage product
           addStore(srcImg, titleProduct, priceProduct, weightProduct);
@@ -51,5 +50,4 @@ ready(function () {
   }
 
   addStore();
-  
 });

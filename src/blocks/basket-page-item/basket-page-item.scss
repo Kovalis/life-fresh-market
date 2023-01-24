@@ -45,8 +45,11 @@
 
     text-decoration: none;
 
-    max-width: 270px;
     padding-right: 20px;
+
+    @media (min-width: $screen-ti) {
+      max-width: 270px;
+    }
   }
 
   &__img {
@@ -55,17 +58,27 @@
   }
 
   &__wrap-price {
-    display: inline-block;
     position: relative;
+    float: right;
+    text-align: right;
 
-    margin-left: 79px;
+    margin-left: 15px;
     margin-right: 20px;
     padding: 20px 45px 20px 0;
+    white-space: nowrap;
+
+    @media (max-width: $screen-ti) {
+      padding-bottom: 0;
+    }
+
+    @media (min-width: $screen-tl) {
+      min-width: 202px;
+    }
 
     .price-old {
       position: absolute;
       top: 4px;
-      left: 0;
+      right: 48px;
     }
   }
 
@@ -78,6 +91,11 @@
     @include clear-button;
     padding: 20px;
     display: inline-flex;
+    width: 51px;
+    height: 51px;
+
+    background: url("../img/close.svg") no-repeat center;
+    background-size: 11px;
 
     transition: transform 0.5s;
 
@@ -108,10 +126,52 @@
     position: absolute;
     right: 0;
     bottom: 21px;
+
+    @media screen and (max-width: $screen-ti) {
+      bottom: 16px;
+    }
   }
 
   &__flex {
     display: grid;
     grid-template-columns: 1fr 127px 86px 275px;
+  }
+
+  @media screen and (max-width: 768px) {
+    &__flex {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+  }
+
+  @media screen and (max-width: 1580px) and (min-width: 768px) {
+    grid-template-columns: 103px 1fr 55px;
+
+    &__flex {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    &__right {
+      flex-direction: column-reverse;
+      margin-bottom: 6px;
+    }
+  }
+
+  &__price-count {
+    display: flex;
+
+    @media (max-width: $screen-ti) {
+      flex-direction: row-reverse;
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
   }
 }

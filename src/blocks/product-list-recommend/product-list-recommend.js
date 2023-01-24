@@ -2,7 +2,6 @@ import ready from "../../js/utils/documentReady";
 import Swiper, { Navigation, Scrollbar } from "swiper";
 
 ready(function () {
-  console.log("23562");
   const parentEl = ".js-product-list-recommend";
   const PARENT = document.querySelector(`${parentEl}`);
   if (PARENT) {
