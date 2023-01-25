@@ -29,7 +29,7 @@ ready(function () {
         "click",
         function (event) {
           event.preventDefault();
-          if (!basketSidebar.classList.contains("sidebar__exist_active")) {
+          if (basketSidebar && !basketSidebar.classList.contains("sidebar__exist_active")) {
             basketSidebar.classList.add("sidebar__exist_active");
           }
           this.closest(".product-cart").classList.add("product-cart__btn_disable");
@@ -41,8 +41,6 @@ ready(function () {
 
           //add in LocalStorage product
           addStore(srcImg, titleProduct, priceProduct, weightProduct);
-
-          //addSidebarBasket(srcImg, titleProduct, priceProduct, weightProduct);
         },
         true,
       );

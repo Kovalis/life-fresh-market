@@ -4,7 +4,7 @@ import IMask from "imask";
 
 ready(function () {
   const customDate = document.querySelector(`.js-input-date`);
-  //console.log(customDate);
+  console.log(customDate);
   if (customDate) {
     new AirDatepicker(".js-input-date");
   }
