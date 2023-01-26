@@ -62,10 +62,27 @@
     }
 
     @media screen and (min-width: $screen-d) {
-      max-width: 1631px;
       display: grid;
       grid-template-columns: 1fr 514px;
       gap: 40px;
+
+      #{$this} {
+        &__main {
+          max-width: 720px;
+          width: auto;
+        }
+
+        &__sidebar {
+          max-width: none;
+          width: auto;
+
+          padding-top: 30px;
+        }
+      }
+    }
+
+    @media screen and (min-width: $screen-dxl) {
+      max-width: 1631px;
 
       #{$this} {
         &__main {

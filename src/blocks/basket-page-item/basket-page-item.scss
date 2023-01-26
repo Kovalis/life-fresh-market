@@ -135,9 +135,16 @@
   &__flex {
     display: grid;
     grid-template-columns: 1fr 127px 86px 275px;
+    align-items: center;
+
+    @media screen and (max-width: $screen-dxl) and (min-width: $screen-d) {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $screen-ti) {
     &__flex {
       display: flex;
       flex-direction: column;
@@ -146,14 +153,8 @@
     }
   }
 
-  @media screen and (max-width: 1580px) and (min-width: 768px) {
+  @media screen and (max-width: 1580px) and (min-width: $screen-ti) {
     grid-template-columns: 103px 1fr 55px;
-
-    &__flex {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-    }
 
     &__right {
       flex-direction: column-reverse;

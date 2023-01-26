@@ -19,6 +19,7 @@ let config = {
     // "src/scss/vendor.scss",
     "src/scss/fonts.scss",
     "src/scss/ui.scss",
+    "air-datepicker/air-datepicker.css"
     // "src/scss/animations.scss"
     // "somePackage/dist/somePackage.css", // для "node_modules/somePackage/dist/somePackage.css",
   ],
